@@ -29,11 +29,11 @@ All real-world content lives in `/content`. Components never contain facts.
 - `todo("…")` marks a missing input. It renders as a dashed TODO box in dev.
 - `verify(value, "…")` marks a value that exists but must be confirmed. It renders with a dotted underline and a "verify" tag.
 
-`npm run build`, which is what Vercel runs, **fails while any marker remains** (brief §3: no fabricated proof).
+`npm run build` (staging and previews) does **not** check markers, so unresolved items render as visible TODO boxes. `npm run build:strict` **fails while any marker remains** (brief §3: no fabricated proof). Use it as the production build command so nothing unfinished ships.
 
 ```bash
 npm run check          # list everything still outstanding
-npm run build:preview  # build a review draft anyway (TODOs visible)
+npm run build:strict   # gated build: fails until every item is resolved
 ```
 
 To resolve an item, replace `todo("…")` with the real value. To confirm a `verify(x, "…")`, unwrap it to plain `x`.

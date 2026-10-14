@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * Pre-build gate. Fails the production build while any todo()/verify()
- * marker remains in /content.
+ * Launch gate. Fails while any todo()/verify() marker remains in /content.
+ * It is opt-in: the normal build (staging, previews) does not run it.
  *
- *   npm run build           → gated (what Vercel runs)
- *   npm run build:preview   → skips this script, for reviewing a draft
+ *   npm run build           → no gate (what staging runs; markers render visibly)
+ *   npm run build:strict    → gated; use this as the production build command
  *   npm run check           → just print the outstanding list
  */
 import { readdirSync, readFileSync, statSync } from "node:fs";
@@ -68,5 +68,5 @@ for (const f of findings) console.log(`  [${f.kind.padEnd(6)}] ${f.where.padEnd(
 
 if (reportOnly) process.exit(0);
 console.error("\n✗ Production build blocked until every item above is resolved (brief §3).");
-console.error("  To build a review draft anyway: npm run build:preview\n");
+console.error("  To build a review draft anyway: npm run build\n");
 process.exit(1);
