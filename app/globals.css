@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* ───────────────────────────── Design tokens ─────────────────────────────
+   Deep forest green, warm ivory, muted gold (brief §8).
+   Lindsey's pink (blush) is an accent only: signature, small marks, focus. */
+@theme {
+  --color-forest-950: #0c1913;
+  --color-forest-900: #12241b;
+  --color-forest-800: #1a3427;
+  --color-forest-700: #244634;
+  --color-forest-600: #335c46;
+  --color-forest-300: #9db3a3;
+
+  --color-ivory-50: #fbf8f2;
+  --color-ivory-100: #f5efe3;
+  --color-ivory-200: #ebe2cf;
+  --color-ivory-300: #ddd1b8;
+
+  --color-gold-200: #e6d4ad;
+  --color-gold-300: #d6bd8a;
+  --color-gold-400: #c4a467;
+  --color-gold-700: #7a5d26; /* text-safe gold on ivory (≥4.5:1) */
+
+  --color-ink: #16201a;
+  --color-ink-soft: #46524b;
+
+  --color-blush-300: #e3b4c7;
+  --color-blush-500: #c97c9c;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-signature: var(--font-alex-brush), cursive;
+
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-shimmer: shimmer 9s ease-in-out infinite;
+  @keyframes shimmer {
+    0%, 100% { transform: translateX(0); opacity: 0.55; }
+    50% { transform: translateX(-2.5%); opacity: 0.9; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  body {
+    background: var(--color-ivory-50);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  ::selection {
+    background: var(--color-gold-200);
+    color: var(--color-forest-900);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blush-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Small caps-style label used for chapter numbers and eyebrows. */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  /* Subtle film grain for the cinematic sections. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor 20%, currentColor 80%, transparent);
+    opacity: 0.25;
+  }
+}
+
+/* Vimeo iframe sized to cover its container like object-fit: cover. */
+.video-cover iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 177.78vh);
+  height: max(100%, 56.25vw);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@media print {
+  @page { size: letter; margin: 0.55in; }
+  body { background: white; }
+  .no-print { display: none !important; }
+}
+
+@keyframes scrollcue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(200%); }
+}
