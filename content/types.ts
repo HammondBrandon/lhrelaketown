@@ -67,6 +67,8 @@ export type Testimonial = {
   context: Slot<string>;
   /** Written permission from the client to publish (brief §3). */
   permission: Slot<true>;
+  /** Where the words were published, e.g. "Google". */
+  source?: string;
 };
 
 export type ReachScreenshot = {

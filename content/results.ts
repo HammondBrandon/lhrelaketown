@@ -1,5 +1,5 @@
-import { todo } from "@/lib/placeholders";
-import type { CapacityItem, CaseStudy, ReachScreenshot, Stat, Testimonial } from "./types";
+import { todo, verify } from "@/lib/placeholders";
+import type { CapacityItem, CaseStudy, ImageAsset, ReachScreenshot, Stat, Testimonial } from "./types";
 
 /** Section 04: real transaction performance only (brief §4, §9.3). */
 export const stats: Stat[] = [
@@ -73,15 +73,68 @@ const caseStudy = (n: number): CaseStudy => ({
 /** 2–4 case studies. Add or remove entries to match what Lindsey supplies. */
 export const caseStudies: CaseStudy[] = [caseStudy(1), caseStudy(2), caseStudy(3)];
 
-const testimonial = (n: number): Testimonial => ({
-  id: `t-${n}`,
-  quote: todo(`Testimonial ${n}: exact words from a real client`),
-  name: todo(`Testimonial ${n}: client name as they approve it, e.g. 'Sarah M.'`),
-  context: todo(`Testimonial ${n}: context, e.g. 'Sold a lake home in Wedowee'`),
-  permission: todo(`Testimonial ${n}: written permission to publish`),
+/** Where the testimonials come from: Lindsey's Google Business Profile. */
+export const googleRating = {
+  score: "5.0",
+  count: 103,
+  image: {
+    src: "/media/work/reviews/google-rating.png",
+    width: 340,
+    height: 52,
+    alt: "Google rating: 5.0 out of 5 stars from 103 reviews",
+  } satisfies ImageAsset,
+};
+
+/**
+ * Verbatim excerpts from public Google reviews (never reworded; ellipses mark
+ * where text was cut). Names are shown as first name and last initial.
+ */
+const googleReview = (
+  id: string,
+  name: string,
+  context: string,
+  quote: string,
+): Testimonial => ({
+  id,
+  quote,
+  name,
+  context,
+  source: "Google",
+  permission: verify(true, `Confirm ${name} is comfortable being quoted on this page (public Google review)`),
 });
 
-export const testimonials: Testimonial[] = [testimonial(1), testimonial(2), testimonial(3)];
+export const testimonials: Testimonial[] = [
+  googleReview(
+    "t-colton",
+    "Colton",
+    "Sold a home",
+    "We chose Lindsey based on a referral, and we\u2019re so glad we did. She was fantastic to work with from start to finish. Her communication throughout the entire process was excellent. She always kept us informed, was easy to reach, and made sure we knew what to expect every step of the way.",
+  ),
+  googleReview(
+    "t-kirsten",
+    "Kirsten P.",
+    "Bought a home",
+    "Lindsey was available every single time we needed her, and that\u2019s how you know you\u2019re truly being taken care of. She was there to answer questions, walk us through the process, and help us navigate every step. What we thought would be a closing process of over a month turned into signing papers in just 15 days!",
+  ),
+  googleReview(
+    "t-lecette",
+    "Lecette P.",
+    "Sold a home",
+    "You came in and got our home sold just under 2 months after being on the market for months. The work that you put into each home you sell shows this is what you LOVE to do!",
+  ),
+  googleReview(
+    "t-sandee",
+    "Sandee M.",
+    "Sold a home",
+    "I chose her because her marketing stood out like no other agent. She not only took pictures but made drone footage and made a very cute video of her running through my front yard before going inside my house. She was very knowledgeable on pricing my house and getting a full offer.",
+  ),
+  googleReview(
+    "t-savannah",
+    "Savannah M.",
+    "Sold their first home",
+    "My favorite thing was the communication she would answer my calls or texts anytime a day no matter what it was! If you\u2019re looking for a realtor i cannot recommend her enough!",
+  ),
+];
 
 /** The capacity answer (brief §4): who covers what when Lindsey is at another closing. */
 export const capacity: CapacityItem[] = [

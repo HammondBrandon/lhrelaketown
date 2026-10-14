@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SlotText, TodoBlock } from "@/components/ui/Placeholder";
 import { isTodo, valueOf } from "@/lib/placeholders";
-import { capacity, caseStudies, reach, stats, testimonials } from "@/content/results";
+import { capacity, caseStudies, googleRating, reach, stats, testimonials } from "@/content/results";
 import type { CaseStudy, Testimonial } from "@/content/types";
 
 /** 04 · The work behind the results. Real numbers, case studies, testimonials, capacity. */
@@ -100,10 +100,20 @@ export function Results() {
 
         {/* Testimonials */}
         <div className="mt-24 sm:mt-32">
-          <Reveal>
+          <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h3 className="text-4xl text-forest-900 sm:text-5xl">In their words</h3>
+            <div className="shrink-0">
+              <Image
+                src={googleRating.image.src}
+                alt={googleRating.image.alt}
+                width={googleRating.image.width}
+                height={googleRating.image.height}
+                className="h-auto w-[17rem]"
+              />
+              <p className="mt-1 text-xs text-ink-soft">Rating on Lindsey&rsquo;s Google Business Profile</p>
+            </div>
           </Reveal>
-          <ul className="mt-10 grid gap-6 md:grid-cols-3">
+          <ul className="mt-10 gap-6 md:columns-2 lg:columns-3 [&>li]:mb-6 [&>li]:break-inside-avoid">
             {testimonials.map((t, i) => (
               <TestimonialCard key={t.id} testimonial={t} index={i} />
             ))}
@@ -215,7 +225,7 @@ function TestimonialCard({ testimonial: t, index }: { testimonial: Testimonial; 
       <span aria-hidden className="font-display text-6xl leading-none text-blush-500">
         &ldquo;
       </span>
-      <blockquote className="mt-2 flex-1 font-display text-2xl leading-snug text-forest-900">
+      <blockquote className="mt-2 flex-1 font-display text-xl leading-snug text-forest-900 sm:text-[1.375rem]">
         <SlotText slot={t.quote} />
       </blockquote>
       <div className="mt-8 border-t border-forest-900/10 pt-5 text-sm">
@@ -224,6 +234,7 @@ function TestimonialCard({ testimonial: t, index }: { testimonial: Testimonial; 
         </p>
         <p className="mt-0.5 text-ink-soft">
           <SlotText slot={t.context} />
+          {t.source && <span className="text-ink-soft/70"> · {t.source} review</span>}
         </p>
         {isTodo(t.permission) && (
           <p className="mt-3 text-xs">
