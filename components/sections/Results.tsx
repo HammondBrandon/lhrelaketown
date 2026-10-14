@@ -3,9 +3,10 @@ import { MediaImage } from "@/components/media/MediaImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SlotText, TodoBlock } from "@/components/ui/Placeholder";
+import { TestimonialCard } from "./TestimonialCard";
 import { isTodo, valueOf } from "@/lib/placeholders";
 import { capacity, caseStudies, googleRating, reach, stats, testimonials } from "@/content/results";
-import type { CaseStudy, Testimonial } from "@/content/types";
+import type { CaseStudy } from "@/content/types";
 
 /** 04 · The work behind the results. Real numbers, case studies, testimonials, capacity. */
 export function Results() {
@@ -113,7 +114,7 @@ export function Results() {
               <p className="mt-1 text-xs text-ink-soft">Rating on Lindsey&rsquo;s Google Business Profile</p>
             </div>
           </Reveal>
-          <ul className="mt-10 gap-6 md:columns-2 lg:columns-3 [&>li]:mb-6 [&>li]:break-inside-avoid">
+          <ul className="mt-10 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t, i) => (
               <TestimonialCard key={t.id} testimonial={t} index={i} />
             ))}
@@ -212,37 +213,6 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
         {isTodo(study.permission) && (
           <p className="mt-6 text-xs">
             <SlotText slot={study.permission} />
-          </p>
-        )}
-      </div>
-    </Reveal>
-  );
-}
-
-function TestimonialCard({ testimonial: t, index }: { testimonial: Testimonial; index: number }) {
-  return (
-    <Reveal as="li" delay={index * 0.08} className="flex flex-col rounded-sm border border-forest-900/10 p-7 sm:p-8">
-      <span aria-hidden className="font-display text-6xl leading-none text-blush-500">
-        &ldquo;
-      </span>
-      <blockquote className="mt-2 flex-1 space-y-4 font-display text-lg leading-relaxed text-forest-900 sm:text-xl">
-        {typeof t.quote === "string" ? (
-          t.quote.split("\n\n").map((para) => <p key={para}>{para}</p>)
-        ) : (
-          <SlotText slot={t.quote} />
-        )}
-      </blockquote>
-      <div className="mt-8 border-t border-forest-900/10 pt-5 text-sm">
-        <p className="font-semibold text-forest-900">
-          <SlotText slot={t.name} />
-        </p>
-        <p className="mt-0.5 text-ink-soft">
-          <SlotText slot={t.context} />
-          {t.source && <span className="text-ink-soft/70"> · {t.source} review</span>}
-        </p>
-        {isTodo(t.permission) && (
-          <p className="mt-3 text-xs">
-            <SlotText slot={t.permission} />
           </p>
         )}
       </div>
