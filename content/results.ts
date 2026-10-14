@@ -86,8 +86,8 @@ export const googleRating = {
 };
 
 /**
- * Verbatim excerpts from public Google reviews (never reworded; ellipses mark
- * where text was cut). Names are shown as first name and last initial.
+ * Full, verbatim text of public Google reviews, never reworded. Paragraph
+ * breaks are "\n\n". Names are shown as first name and last initial.
  */
 const googleReview = (
   id: string,
@@ -108,31 +108,31 @@ export const testimonials: Testimonial[] = [
     "t-colton",
     "Colton",
     "Sold a home",
-    "We chose Lindsey based on a referral, and we\u2019re so glad we did. She was fantastic to work with from start to finish. Her communication throughout the entire process was excellent. She always kept us informed, was easy to reach, and made sure we knew what to expect every step of the way.",
+    "We chose Lindsey based on a referral, and we’re so glad we did. She was fantastic to work with from start to finish.\n\nHer communication throughout the entire process was excellent. She always kept us informed, was easy to reach, and made sure we knew what to expect every step of the way. Anytime a small hiccup came up, she had a way of keeping us calm and was always ready with a solution or another idea for how to move forward.\n\nSelling a house is stressful but Lindsey made the whole process a lot easier. We always felt like she was looking out for us and giving us good advice. We had a great experience and would definitely recommend her to anyone looking to buy or sell!",
   ),
   googleReview(
     "t-kirsten",
     "Kirsten P.",
     "Bought a home",
-    "Lindsey was available every single time we needed her, and that\u2019s how you know you\u2019re truly being taken care of. She was there to answer questions, walk us through the process, and help us navigate every step. What we thought would be a closing process of over a month turned into signing papers in just 15 days!",
+    "We truly cannot say enough wonderful things about Lindsey! What started as a home-buying journey became such a beautiful reminder of God’s timing, faithfulness, and the way He works through people to bring things together. We believe it was through faith and His hands that He brought us to this home, and we are so grateful Lindsey was part of that journey.\n\nLindsey was available every single time we needed her, and that’s how you know you’re truly being taken care of. She was there to answer questions, walk us through the process, and help us navigate every step. What we thought would be a closing process of over a month turned into signing papers in just 15 days! We had a few hiccups along the way, but looking back, even those turned out to be little gifts from God that helped everything fall into place.\n\nBecause we share a personal relationship and attend the same church, this experience was especially meaningful to us. Lindsey wasn’t just helping us buy a house; she was helping us step into a new chapter for our family.\n\nWe cannot wait to breathe new life into this beautiful 1890 home, fill it with love and memories, and make it a place where God remains at the center of it all. We are beyond thankful for Lindsey and would wholeheartedly recommend her to anyone looking for a realtor who genuinely cares, shows up when you need her, and makes you feel taken care of throughout the entire process!\n\nThank you, Lindsey, for being part of such a special blessing for our family! 💗 🏡",
   ),
   googleReview(
     "t-lecette",
     "Lecette P.",
     "Sold a home",
-    "You came in and got our home sold just under 2 months after being on the market for months. The work that you put into each home you sell shows this is what you LOVE to do!",
+    "Thank you Lindsey for your Amazing hand in selling our home! I could not have asked for a better realtor. You came in and got our home sold just under 2 months after being on the market for months. The work that you put into each home you sell shows this is what you LOVE to do! Selling the home is great but to have someone in your corner that cares and is on top of things is a blessing! We appreciate all that you have done the showings, the pictures, the drone footage, the videos of our home, the images you captured to show buyers what the home has potential to be in every room. You have exceeded our expectations of a realtor and can’t thank you enough! If you are looking for someone who is motivated, driven, and loves what they do…. Don’t waste any time and call Lindsey!",
   ),
   googleReview(
     "t-sandee",
     "Sandee M.",
     "Sold a home",
-    "I chose her because her marketing stood out like no other agent. She not only took pictures but made drone footage and made a very cute video of her running through my front yard before going inside my house. She was very knowledgeable on pricing my house and getting a full offer.",
+    "Let me take a moment to talk about MY AGENT Lindsey Hammond!! She was amazing!! I chose her because her marketing stood out like no other agent. She not only took pictures but made drone footage and made a very cute video of her running through my front yard before going inside my house. She was very knowledgeable on pricing my house and getting a full offer. She was always quick to respond and help with any questions or issues that came up. Not only did she become MY AGENT but became My Friend as well. Thank you Lindsey! YOU ARE THE BEST!!💗",
   ),
   googleReview(
     "t-savannah",
     "Savannah M.",
     "Sold their first home",
-    "My favorite thing was the communication she would answer my calls or texts anytime a day no matter what it was! If you\u2019re looking for a realtor i cannot recommend her enough!",
+    "Selling our first home was NOT an easy decision or task... after using another realtor we were unsure if we even wanted to sell, then came along lindsey you can’t miss her advertisement.. BIG, BRIGHT, BOLD, and did i mention PINK! She is the kind of realtor you see constant success stories from & hard work on EVERY listing big or small. So common sense led us to her. Little did we know she was ALOT better then we even knew. she immediately was straight forward answering every question we had,as well as giving us clear instructions on how to best prep our home, following with a very quick listing shoot with multiple forms of advertisement all filmed same day. To say the least we were impressed from the start before we even got our first showing! i can not even begin to express our gratitude for her she fought for us at every turn even when we thought something was not going to work she made sure it did! My favorite thing was the communication she would answer my calls or texts anytime a day no matter what it was! If you’re looking for a realtor i cannot recommend her enough! We have definitely found our realtor for the rest of our moving needs!",
   ),
 ];
 

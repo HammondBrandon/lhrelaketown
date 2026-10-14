@@ -225,8 +225,12 @@ function TestimonialCard({ testimonial: t, index }: { testimonial: Testimonial; 
       <span aria-hidden className="font-display text-6xl leading-none text-blush-500">
         &ldquo;
       </span>
-      <blockquote className="mt-2 flex-1 font-display text-xl leading-snug text-forest-900 sm:text-[1.375rem]">
-        <SlotText slot={t.quote} />
+      <blockquote className="mt-2 flex-1 space-y-4 font-display text-lg leading-relaxed text-forest-900 sm:text-xl">
+        {typeof t.quote === "string" ? (
+          t.quote.split("\n\n").map((para) => <p key={para}>{para}</p>)
+        ) : (
+          <SlotText slot={t.quote} />
+        )}
       </blockquote>
       <div className="mt-8 border-t border-forest-900/10 pt-5 text-sm">
         <p className="font-semibold text-forest-900">
