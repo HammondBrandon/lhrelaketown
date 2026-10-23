@@ -67,6 +67,3 @@ export const whyItMatters = [
     ),
   },
 ];
-
-export const honesty =
-  "We don't know Phase 1's lot sizes, pricing, amenities or covenants, and we haven't guessed at them anywhere on this page. Everything here comes from public reporting, cited below.";

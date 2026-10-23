@@ -89,12 +89,8 @@ export function Lightbox({
             )}
           </div>
           <div className="flex w-full max-w-6xl items-start justify-between gap-6 text-ivory-100">
-            <div>
-              <p className="font-display text-2xl">{item.title}</p>
-              {item.caption && <p className="mt-1 text-sm text-ivory-100/65">{item.caption}</p>}
-            </div>
             {items.length > 1 && (
-              <p className="eyebrow shrink-0 pt-2 text-ivory-100/50">
+              <p className="eyebrow ml-auto shrink-0 pt-2 text-ivory-100/50">
                 {index! + 1} / {items.length}
               </p>
             )}

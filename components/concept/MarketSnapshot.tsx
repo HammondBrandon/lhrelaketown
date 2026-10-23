@@ -57,7 +57,7 @@ export function MarketSnapshot({ tone = "light" }: { tone?: "light" | "dark" }) 
           </p>
         </div>
         <div>
-          <p className={`eyebrow ${dark ? "text-gold-300" : "text-gold-700"}`}>West Georgia buyer demand</p>
+          <p className={`eyebrow ${dark ? "text-gold-300" : "text-gold-700"}`}>A true local</p>
           <p className={`mt-2 text-sm leading-relaxed ${muted}`}>
             <SlotText slot={market.westGeorgiaDemand} tone={tone} />
           </p>

@@ -4,10 +4,10 @@ import type { CapacityItem, CaseStudy, ImageAsset, ReachScreenshot, Stat, Testim
 
 /** Section 04: real transaction performance only (brief §4, §9.3). */
 export const stats: Stat[] = [
-  {
-    value: verify("55", "Confirm the reporting period these 55 closings cover, and add it to the label") as Slot<string>,
-    label: "Closed transactions",
-  },
+  { value: "55", label: "Closed transactions in 2026" },
+  { value: "53,959", label: "Average views per property listed" },
+  { value: "7", label: "Sellers who were unhappy with their previous realtor and hired Lindsey to market their home" },
+  { value: "15", label: "Properties sold in 2026 where Lindsey\u2019s marketing directly brought the buyer to the seller" },
   {
     value: todo("Lindsey's average days on market"),
     label: todo("Label, e.g. 'Average days on market'"),
@@ -29,12 +29,12 @@ export const stats: Stat[] = [
  */
 export const reach = {
   heading: "Where her listings get seen",
-  lead: "Lindsey promotes listings on her business and personal Facebook pages, dedicated property webpages, digital advertising and agent outreach. These are her most-viewed recent Facebook posts, straight from the Content Library.",
+  lead: "Lindsey promotes listings on her business and personal Facebook pages, TikTok, YouTube, Instagram and LinkedIn, along with dedicated property webpages, digital advertising and agent outreach. These are her most-viewed recent Facebook posts, straight from the Content Library.",
   highlights: [
-    { value: "13", label: "posts over 31,000 views each on the business page" },
-    { value: "56,381", label: "views on her top personal-page post, a land listing with a private lake" },
+    { value: "13", label: "posts with over 31,000 views each on the business page" },
+    { value: "56,381", label: "views on her personal page alone for one of her most recent land listings" },
     { value: "2.2M", label: "views across her two pages in the last 90 days (July 16 to October 13)" },
-    { value: "2", label: "pages she markets on, with listings cross-posted to both" },
+    { value: "2", label: "pages she uses to market your property, which means double the exposure, with the average property listing seeing 53,959 views" },
   ],
   /** Facebook Insights, "Last 90 days: Jul 16 – Oct 13". Which page is which is deliberately not stated. */
   ninetyDay: {
@@ -80,37 +80,36 @@ export const reach = {
   ] satisfies ReachScreenshot[],
 };
 
-const caseStudy = (n: number): CaseStudy => ({
-  id: `case-${n}`,
-  property: todo(`Case study ${n}: property type`),
-  location: todo(`Case study ${n}: town and state`),
-  image: todo(`Case study ${n}: lead photo`),
-  strategy: todo(`Case study ${n}: the strategy, in one or two sentences`),
-  marketingSteps: todo(`Case study ${n}: three to five marketing steps actually taken`),
-  timeline: todo(`Case study ${n}: listing to close timeline`),
-  result: todo(`Case study ${n}: the result, e.g. sale price vs. list and days on market`),
-  permission: todo(`Case study ${n}: client permission`),
+const caseStudy = (id: string, property: string, location: Slot<string>): CaseStudy => ({
+  id: `case-${id}`,
+  property,
+  location,
+  image: todo(`${property}: lead photo`),
+  strategy: todo(`${property}: the strategy, in one or two sentences`),
+  marketingSteps: todo(`${property}: three to five marketing steps actually taken`),
+  timeline: todo(`${property}: listing to close timeline`),
+  result: todo(`${property}: the result, e.g. sale price vs. list and days on market`),
+  permission: todo(`${property}: client permission`),
 });
 
-/** Case study 1 is the same campaign as the walkthrough in content/work.ts. */
-const vineyardRoad: CaseStudy = {
-  ...caseStudy(1),
-  property: verify("Vineyard Road, 80 acres with a private lake", "Confirm Vineyard Road is the campaign to feature") as Slot<string>,
-  location: "Fruithurst, AL",
-  strategy: verify(
-    "Highlight the acreage, private lake and setting, while clearly presenting the additional adjoining 9.88-acre purchase opportunity.",
-    "Confirm this is the strategy that was actually used",
-  ) as Slot<string>,
-  marketingSteps: [
-    "A dedicated property webpage",
-    "Property copy highlighting the land and the lake",
-    "Facebook promotion",
-  ],
-  // Still open: lead photo (confirm which photo set is this property), timeline, result, client permission.
-};
+const stateCheck = "Confirm the state for this address";
 
-/** 2–4 case studies. Add or remove entries to match what Lindsey supplies. */
-export const caseStudies: CaseStudy[] = [vineyardRoad, caseStudy(2), caseStudy(3)];
+/** "Listings, in detail": five real listings. Barnes Rd has its listing video and Colton's review. */
+export const caseStudies: CaseStudy[] = [
+  {
+    ...caseStudy("barnes-rd", "Barnes Rd", todo("Barnes Rd: town and state")),
+    image: {
+      src: "/media/work/barnes-rd.jpg",
+      width: 1280,
+      height: 720,
+      alt: "Barnes Rd listing video, opening frame",
+    },
+  },
+  caseStudy("cr-475", "0 County Road 475", verify("Woodland, AL", stateCheck) as Slot<string>),
+  caseStudy("main-st", "791 Main St", "Wedowee, AL"),
+  caseStudy("gun-club-rd", "0 Gun Club Rd", verify("Tallapoosa, GA", stateCheck) as Slot<string>),
+  caseStudy("bethlehem-church-rd", "275 Bethlehem Church Rd", verify("Carrollton, GA", stateCheck) as Slot<string>),
+];
 
 /** Where the testimonials come from: Lindsey's Google Business Profile. */
 export const googleRating = {
@@ -133,12 +132,14 @@ const googleReview = (
   name: string,
   context: string,
   quote: string,
+  related?: Testimonial["related"],
 ): Testimonial => ({
   id,
   quote,
   name,
   context,
   source: "Google",
+  related,
   permission: verify(true, `Confirm ${name} is comfortable being quoted on this page (public Google review)`),
 });
 
@@ -146,8 +147,9 @@ export const testimonials: Testimonial[] = [
   googleReview(
     "t-colton",
     "Colton",
-    "Sold a home",
+    "Sold Barnes Rd",
     "We chose Lindsey based on a referral, and we’re so glad we did. She was fantastic to work with from start to finish.\n\nHer communication throughout the entire process was excellent. She always kept us informed, was easy to reach, and made sure we knew what to expect every step of the way. Anytime a small hiccup came up, she had a way of keeping us calm and was always ready with a solution or another idea for how to move forward.\n\nSelling a house is stressful but Lindsey made the whole process a lot easier. We always felt like she was looking out for us and giving us good advice. We had a great experience and would definitely recommend her to anyone looking to buy or sell!",
+    { label: "See the Barnes Rd listing", href: "#case-barnes-rd" },
   ),
   googleReview(
     "t-kirsten",

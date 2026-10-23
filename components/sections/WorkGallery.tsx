@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lightbox, type LightboxItem } from "@/components/media/Lightbox";
-import { SlotText, TodoBlock } from "@/components/ui/Placeholder";
+import { TodoBlock } from "@/components/ui/Placeholder";
 import { isTodo, valueOf } from "@/lib/placeholders";
 import type { GalleryItem } from "@/content/types";
 
 const filters = [
   { id: "all", label: "All work" },
-  { id: "film", label: "Listing films" },
+  { id: "film", label: "Listing videos" },
   { id: "photography", label: "Photography" },
   { id: "campaign", label: "Campaigns" },
   { id: "behind-the-scenes", label: "Behind the scenes" },
@@ -27,13 +27,12 @@ const span: Record<NonNullable<GalleryItem["size"]>, string> = {
 /** Turns a gallery item into something the lightbox can open, if its media exists. */
 function toLightbox(item: GalleryItem): LightboxItem | null {
   const title = valueOf(item.title) ?? "";
-  const caption = valueOf(item.context);
   if (item.media.kind === "video") {
     const id = valueOf(item.media.video.vimeoId);
-    return id ? { kind: "video", vimeoId: id, vimeoHash: item.media.video.vimeoHash, title, caption } : null;
+    return id ? { kind: "video", vimeoId: id, vimeoHash: item.media.video.vimeoHash, title } : null;
   }
   const image = valueOf(item.media.image);
-  return image ? { kind: "image", image, title, caption } : null;
+  return image ? { kind: "image", image, title } : null;
 }
 
 export function WorkGallery({ items }: { items: GalleryItem[] }) {
@@ -144,16 +143,6 @@ function Tile({ item, onOpen }: { item: GalleryItem; onOpen?: () => void }) {
           {categoryLabel}
           {duration && <span className="text-ivory-100/60"> · {duration}</span>}
         </span>
-        {stillValue && (
-          <span className="mt-2 block font-display text-2xl leading-tight text-ivory-50">
-            <SlotText slot={item.title} tone="dark" />
-          </span>
-        )}
-        {stillValue && (
-          <span className="mt-1 block text-sm text-ivory-100/70">
-            <SlotText slot={item.context} tone="dark" />
-          </span>
-        )}
       </span>
     </>
   );

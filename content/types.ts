@@ -69,6 +69,8 @@ export type Testimonial = {
   permission: Slot<true>;
   /** Where the words were published, e.g. "Google". */
   source?: string;
+  /** A link to the listing this review is about. */
+  related?: { label: string; href: string };
 };
 
 export type ReachScreenshot = {

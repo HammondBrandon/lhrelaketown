@@ -87,6 +87,14 @@ export function TestimonialCard({ testimonial: t, index }: { testimonial: Testim
           <SlotText slot={t.context} />
           {t.source && <span className="text-ink-soft/70"> · {t.source} review</span>}
         </p>
+        {t.related && (
+          <a
+            href={t.related.href}
+            className="mt-3 inline-block font-semibold text-forest-900 underline decoration-gold-700/60 underline-offset-4 transition hover:decoration-gold-700"
+          >
+            {t.related.label} &rarr;
+          </a>
+        )}
         {isTodo(t.permission) && (
           <p className="mt-3 text-xs">
             <SlotText slot={t.permission} />

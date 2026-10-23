@@ -21,7 +21,7 @@ export function Work() {
               This is what working with <em className="text-gold-200">Lindsey</em> looks like.
             </>
           }
-          lead="Listing films, photography and campaigns from real listings, shown with each client's permission. Select any piece to watch or view it full screen."
+          lead="Listing videos, photography and campaigns from real listings, shown with each client's permission. Select any piece to watch or view it full screen."
         />
         <WorkGallery items={gallery} />
       </div>

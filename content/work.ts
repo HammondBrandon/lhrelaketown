@@ -2,7 +2,7 @@ import { todo, verify } from "@/lib/placeholders";
 import type { GalleryItem, WalkthroughStep } from "./types";
 
 /**
- * Section 03 — the strongest section (brief §4). Real listing films,
+ * Section 03 — the strongest section (brief §4). Real listing videos,
  * photography, campaigns and behind-the-scenes footage, each with client
  * permission. Drop raw files in /content-inbox; processed stills go to
  * /public/media/work and videos to Vimeo.
@@ -17,13 +17,13 @@ export const gallery: GalleryItem[] = [
     media: {
       kind: "video",
       video: {
-        title: "Barnes Rd listing film",
+        title: "Barnes Rd listing video",
         vimeoId: "1235888164",
-        poster: { src: "/media/work/barnes-rd.jpg", width: 1280, height: 720, alt: "Barnes Rd listing film, opening frame" },
+        poster: { src: "/media/work/barnes-rd.jpg", width: 1280, height: 720, alt: "Barnes Rd listing video, opening frame" },
         duration: "1:16",
       },
     },
-    permission: verify(true, "Confirm the seller of Barnes Rd has OK'd showing this film in a pitch (brief §9.2)"),
+    permission: verify(true, "Confirm the seller of Barnes Rd has OK'd showing this video in a pitch (brief §9.2)"),
   },
   {
     id: "film-cr-203",
@@ -33,13 +33,13 @@ export const gallery: GalleryItem[] = [
     media: {
       kind: "video",
       video: {
-        title: "CR 203 listing film",
+        title: "CR 203 listing video",
         vimeoId: "1235890195",
-        poster: { src: "/media/work/cr-203.jpg", width: 1280, height: 720, alt: "CR 203 listing film, opening frame" },
+        poster: { src: "/media/work/cr-203.jpg", width: 1280, height: 720, alt: "CR 203 listing video, opening frame" },
         duration: "1:19",
       },
     },
-    permission: verify(true, "Confirm the seller of CR 203 has OK'd showing this film in a pitch (brief §9.2)"),
+    permission: verify(true, "Confirm the seller of CR 203 has OK'd showing this video in a pitch (brief §9.2)"),
   },
   {
     id: "film-coldwater",
@@ -49,13 +49,13 @@ export const gallery: GalleryItem[] = [
     media: {
       kind: "video",
       video: {
-        title: "Coldwater Land listing film",
+        title: "Coldwater Land listing video",
         vimeoId: "1235891167",
-        poster: { src: "/media/work/coldwater.jpg", width: 1280, height: 720, alt: "Coldwater Land listing film, opening frame" },
+        poster: { src: "/media/work/coldwater.jpg", width: 1280, height: 720, alt: "Coldwater Land listing video, opening frame" },
         duration: "0:58",
       },
     },
-    permission: verify(true, "Confirm the seller of Coldwater Land has OK'd showing this film in a pitch (brief §9.2)"),
+    permission: verify(true, "Confirm the seller of Coldwater Land has OK'd showing this video in a pitch (brief §9.2)"),
   },
   {
     id: "film-kris-st",
@@ -66,13 +66,13 @@ export const gallery: GalleryItem[] = [
     media: {
       kind: "video",
       video: {
-        title: "Kris St listing film",
+        title: "Kris St listing video",
         vimeoId: "1235892074",
-        poster: { src: "/media/work/kris-st.jpg", width: 1280, height: 720, alt: "Kris St listing film, opening frame" },
+        poster: { src: "/media/work/kris-st.jpg", width: 1280, height: 720, alt: "Kris St listing video, opening frame" },
         duration: "1:16",
       },
     },
-    permission: verify(true, "Confirm the seller of Kris St has OK'd showing this film in a pitch (brief §9.2)"),
+    permission: verify(true, "Confirm the seller of Kris St has OK'd showing this video in a pitch (brief §9.2)"),
   },
   {
     id: "photo-creek-meadow",
@@ -328,7 +328,7 @@ export const walkthrough: WalkthroughStep[] = [
   {
     id: "showings",
     title: "Showings",
-    summary: "If needed, Lindsey or a representative is always available to show a property. She also ensures that feedback is received and that leads are followed up with post-showing.",
+    summary: "Lindsey or a representative is always available to show a property. She also ensures that feedback is received and that leads are followed up with post-showing.",
     output: {
       kind: "metric",
       value: todo("Number of showings"),

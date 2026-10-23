@@ -67,6 +67,9 @@ export function Results() {
             {reach.screenshots.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.08}>
                 <figure>
+                  <p className="mb-4 border-b border-gold-300/40 pb-3 font-display text-3xl leading-none text-gold-200 sm:text-4xl">
+                    {s.label}
+                  </p>
                   <div className="overflow-hidden rounded-sm border border-ivory-100/15 shadow-2xl">
                     <Image
                       src={s.image.src}
@@ -78,7 +81,6 @@ export function Results() {
                     />
                   </div>
                   <figcaption className="mt-3 text-sm leading-relaxed text-ivory-100/70">
-                    <span className="eyebrow block text-gold-300">{s.label}</span>
                     {s.caption}
                   </figcaption>
                 </figure>
@@ -113,7 +115,9 @@ export function Results() {
           </Reveal>
           <div className="mt-10 space-y-6">
             {caseStudies.map((c, i) => (
-              <CaseStudyCard key={c.id} study={c} index={i} />
+              <div key={c.id} id={c.id} className="scroll-mt-24">
+                <CaseStudyCard study={c} index={i} />
+              </div>
             ))}
           </div>
         </div>

@@ -68,9 +68,9 @@ export const market = {
     "Lake lot rows by cove or area: active, sold (12 mo), median sold price per waterfront foot, median days on market",
   ) as Slot<MarketRow[]>,
   thinInventory: todo("Where lake-lot inventory is thin, in one or two sentences from the MLS data") as Slot<string>,
-  // Service area only. Add a demand claim once Lindsey has records to back it.
+  // Local roots and service area only. Add a demand claim once Lindsey has records to back it.
   westGeorgiaDemand:
-    "Lindsey serves West Georgia and East Alabama, which gives her an established connection to communities within driving distance of Lake Wedowee." as Slot<string>,
+    "Lindsey grew up on the lake and is a true local, with connections all over Georgia and Alabama. She serves West Georgia and East Alabama, including the communities within driving distance of Lake Wedowee." as Slot<string>,
 };
 
 /**

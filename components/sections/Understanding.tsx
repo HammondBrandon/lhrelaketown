@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SlotText } from "@/components/ui/Placeholder";
-import { facts, honesty, laketown, site, sources, whyItMatters } from "@/content/understanding";
+import { facts, laketown, site, sources, whyItMatters } from "@/content/understanding";
 
 /** 02 · We understand what you're building. Verified public facts only. */
 export function Understanding() {
@@ -17,7 +17,7 @@ export function Understanding() {
               We understand what <em className="text-gold-700">you&rsquo;re building.</em>
             </>
           }
-          lead="Here is what we know about Laketown North, all of it from public reporting."
+          lead="Here is what we know about Laketown North."
         />
 
         {/* Facts */}
@@ -64,9 +64,8 @@ export function Understanding() {
           </div>
         </div>
 
-        <Reveal className="mt-14 grid gap-8 border-t border-forest-900/15 pt-8 md:grid-cols-[1.2fr_1fr]">
-          <p className="max-w-xl text-sm leading-relaxed text-ink-soft">{honesty}</p>
-          <div className="text-sm text-ink-soft">
+        <Reveal className="mt-14 border-t border-forest-900/15 pt-8">
+          <div className="max-w-xl text-sm text-ink-soft">
             <p className="eyebrow text-gold-700">Sources</p>
             <ul className="mt-3 space-y-2">
               {Object.values(sources).map((s) => (
