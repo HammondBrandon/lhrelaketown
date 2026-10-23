@@ -1,11 +1,12 @@
 import { todo, verify } from "@/lib/placeholders";
+import type { Slot } from "@/lib/placeholders";
 import type { CapacityItem, CaseStudy, ImageAsset, ReachScreenshot, Stat, Testimonial } from "./types";
 
 /** Section 04: real transaction performance only (brief §4, §9.3). */
 export const stats: Stat[] = [
   {
-    value: todo("Closed transactions (state the period)"),
-    label: todo("Label for the closed-transactions stat"),
+    value: verify("55", "Confirm the reporting period these 55 closings cover, and add it to the label") as Slot<string>,
+    label: "Closed transactions",
   },
   {
     value: todo("Lindsey's average days on market"),
@@ -28,7 +29,7 @@ export const stats: Stat[] = [
  */
 export const reach = {
   heading: "Where her listings get seen",
-  lead: "Lindsey markets every listing on two Facebook pages, her business page and her personal one. These are her most-viewed recent posts, straight from the Content Library.",
+  lead: "Lindsey promotes listings on her business and personal Facebook pages, dedicated property webpages, digital advertising and agent outreach. These are her most-viewed recent Facebook posts, straight from the Content Library.",
   highlights: [
     { value: "13", label: "posts over 31,000 views each on the business page" },
     { value: "56,381", label: "views on her top personal-page post, a land listing with a private lake" },
@@ -70,8 +71,25 @@ const caseStudy = (n: number): CaseStudy => ({
   permission: todo(`Case study ${n}: client permission`),
 });
 
+/** Case study 1 is the same campaign as the walkthrough in content/work.ts. */
+const vineyardRoad: CaseStudy = {
+  ...caseStudy(1),
+  property: verify("Vineyard Road, 80 acres with a private lake", "Confirm Vineyard Road is the campaign to feature") as Slot<string>,
+  location: "Fruithurst, AL",
+  strategy: verify(
+    "Highlight the acreage, private lake and setting, while clearly presenting the additional adjoining 9.88-acre purchase opportunity.",
+    "Confirm this is the strategy that was actually used",
+  ) as Slot<string>,
+  marketingSteps: [
+    "A dedicated property webpage",
+    "Property copy highlighting the land and the lake",
+    "Facebook promotion",
+  ],
+  // Still open: lead photo (confirm which photo set is this property), timeline, result, client permission.
+};
+
 /** 2–4 case studies. Add or remove entries to match what Lindsey supplies. */
-export const caseStudies: CaseStudy[] = [caseStudy(1), caseStudy(2), caseStudy(3)];
+export const caseStudies: CaseStudy[] = [vineyardRoad, caseStudy(2), caseStudy(3)];
 
 /** Where the testimonials come from: Lindsey's Google Business Profile. */
 export const googleRating = {
@@ -140,18 +158,28 @@ export const testimonials: Testimonial[] = [
 export const capacity: CapacityItem[] = [
   {
     question: "Who covers showings when Lindsey is at another closing?",
-    answer: todo("Name and role of the backup agent, and how handoffs work"),
+    answer: verify(
+      "A designated licensed backup agent covers showings, using access procedures approved by the developer.",
+      "Name the backup agent: the notes say both Brandon and Miho. Confirm who it is and how handoffs work",
+    ) as Slot<string>,
   },
   {
     question: "Who keeps contracts moving?",
-    answer: todo("Transaction coordinator: name or arrangement, and what they own"),
+    answer:
+      "John, Lindsey's transaction coordinator, coordinates paperwork, tracks deadlines, communicates with the parties involved, and follows up on outstanding documents.",
   },
   {
     question: "How fast are leads answered?",
-    answer: todo("Lindsey's real lead-response standard and how it's covered after hours"),
+    answer: verify(
+      "Lindsey's CRM and automations manage, track and follow up on every lead. Miho handles client-related communication and serves as Lindsey's backup, so replies stay timely and follow-up stays consistent.",
+      "Confirm the one-hour personal reply commitment and who covers evenings and weekends before publishing it",
+    ) as Slot<string>,
   },
   {
     question: "When is Lindsey at the lake?",
-    answer: todo("Planned on-site days at Laketown North, e.g. 'every Saturday during launch'"),
+    answer: verify(
+      "A regular Saturday appointment window during launch, with weekday appointments by arrangement.",
+      "Lindsey needs to confirm this on-site commitment",
+    ) as Slot<string>,
   },
 ];

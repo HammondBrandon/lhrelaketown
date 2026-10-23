@@ -262,7 +262,7 @@ export const gallery: GalleryItem[] = [
  * Each step shows an output, not a paragraph describing it.
  */
 export const walkthroughProperty = {
-  name: todo("The campaign Lindsey chooses for the walkthrough (property and town)"),
+  name: verify("Vineyard Road, Fruithurst, AL", "Confirm Vineyard Road is the campaign to feature in the walkthrough"),
   permission: todo("Client permission to feature this campaign, numbers included"),
 };
 
@@ -299,7 +299,7 @@ export const walkthrough: WalkthroughStep[] = [
         poster: todo("Poster still for the shoot clip"),
         duration: todo("Runtime, shoot clip"),
       },
-      caption: todo("Caption for the shoot output"),
+      caption: "Photography, aerial footage, and video introduce the property\u2019s scale, water features, and setting.",
     },
   },
   {
@@ -309,7 +309,10 @@ export const walkthrough: WalkthroughStep[] = [
     output: {
       kind: "image",
       image: todo("Launch output: the actual ad or social post"),
-      caption: todo("Caption with real reach or engagement numbers, if available"),
+      caption: verify(
+        "This property post generated 56,381 views on Lindsey\u2019s personal Facebook page.",
+        "Confirm the 56,381-view post is the Vineyard Road listing before attaching this result",
+      ),
     },
   },
   {

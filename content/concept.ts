@@ -1,4 +1,4 @@
-import { todo } from "@/lib/placeholders";
+import { todo, verify } from "@/lib/placeholders";
 import type { MarketRow, PlanItem, VideoAsset } from "./types";
 import type { Slot } from "@/lib/placeholders";
 
@@ -68,9 +68,9 @@ export const market = {
     "Lake lot rows by cove or area: active, sold (12 mo), median sold price per waterfront foot, median days on market",
   ) as Slot<MarketRow[]>,
   thinInventory: todo("Where lake-lot inventory is thin, in one or two sentences from the MLS data") as Slot<string>,
-  westGeorgiaDemand: todo(
-    "Short note on West Georgia buyer demand, backed by Lindsey's own buyer activity or data",
-  ) as Slot<string>,
+  // Service area only. Add a demand claim once Lindsey has records to back it.
+  westGeorgiaDemand:
+    "Lindsey serves West Georgia and East Alabama, which gives her an established connection to communities within driving distance of Lake Wedowee." as Slot<string>,
 };
 
 /**
@@ -81,31 +81,31 @@ export const launchPlan: PlanItem[] = [
   {
     id: "preview-event",
     title: "Carrollton-area preview event",
-    detail: todo("What the preview event is, who's invited, and how guests are followed up"),
-    timing: todo("When it happens relative to the Phase 1 release"),
+    detail: verify("An invitation-only introduction for interested buyers and agents, featuring approved community information, lake footage and the purchase process. Guest interests are collected and followed up personally.", "Proposed plan: Lindsey to confirm") as Slot<string>,
+    timing: verify("Two to four weeks before the approved Phase 1 release.", "Proposed timing: Lindsey to confirm") as Slot<string>,
   },
   {
     id: "lake-day",
     title: "Buyer lake day",
-    detail: todo("How the buyer lake day works: boat tour from public access, what buyers see"),
-    timing: todo("Timing for the buyer lake day"),
+    detail: verify("Scheduled small-group boat tours departing from an established public access location or marina, introducing the lake and approved views of the community. Subject to developer approval and boat operator arrangements.", "Proposed plan: Lindsey to confirm") as Slot<string>,
+    timing: verify("During the first month of the release, with additional dates based on demand and weather.", "Proposed timing: Lindsey to confirm") as Slot<string>,
   },
   {
     id: "media",
     title: "Photo and video schedule",
-    detail: todo("Shoot plan: progress footage from the water, seasons, launch film"),
-    timing: todo("Cadence, e.g. monthly from the water"),
+    detail: verify("An initial collection of lake lifestyle footage, community photography, aerial views and a launch film, with progress coverage added as development advances.", "Proposed plan: Lindsey to confirm") as Slot<string>,
+    timing: verify("Initial production before launch, monthly progress coverage, and additional shoots at major milestones.", "Proposed schedule: Lindsey to confirm") as Slot<string>,
   },
   {
     id: "lead-response",
     title: "One-hour lead response",
-    detail: todo("How every inquiry gets a personal reply within one hour, including evenings and weekends"),
-    timing: todo("When this standard starts"),
+    detail: verify("A CRM and automations manage, track and follow up on every lead. Miho handles client-related communication and serves as Lindsey\u2019s backup, so replies stay timely and consistent.", "The one-hour personal reply needs confirmed evening and weekend coverage before publishing") as Slot<string>,
+    timing: verify("Before public registrations open.", "Proposed timing: Lindsey to confirm") as Slot<string>,
   },
   {
     id: "showings",
     title: "Showing coverage",
-    detail: todo("Who shows lots, how on-site days are scheduled, and the backup when Lindsey is at a closing"),
-    timing: todo("Showing schedule during launch"),
+    detail: verify("Lindsey and a designated licensed backup agent show lots, using access procedures approved by the developer.", "Name the backup agent (notes say both Brandon and Miho) and confirm") as Slot<string>,
+    timing: verify("A regular Saturday appointment window during launch, with weekday appointments by arrangement.", "Lindsey needs to confirm this commitment") as Slot<string>,
   },
 ];

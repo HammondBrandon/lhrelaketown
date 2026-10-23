@@ -21,8 +21,9 @@ export const agent = {
     height: 2048,
     alt: "Lindsey Hammond smiling, seated on the island of a newly finished kitchen",
   } as Slot<ImageAsset>,
-  bio: todo(
-    "Two or three sentences in Lindsey's voice: where she's from, what she sells, why lake property",
+  bio: verify(
+    "Lindsey Hammond is a real estate agent with Triple R Real Estate LLC, licensed in Alabama and Georgia and serving buyers and sellers across West Georgia and East Alabama. Her work includes homes and acreage, supported by in-house photography, videography, and digital marketing. For lake property, her approach is to help buyers understand both the land and the lifestyle surrounding it.",
+    "Draft bio: Lindsey to approve it",
   ) as Slot<string>,
 };
 
