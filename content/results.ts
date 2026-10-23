@@ -80,15 +80,34 @@ const caseStudy = (id: string, property: string, location: Slot<string>): CaseSt
   permission: todo(`${property}: client permission`),
 });
 
-const stateCheck = "Confirm the state for this address";
-
 /** "Listings, in detail": five real listings. Colton's review is for Barnes Rd. */
 export const caseStudies: CaseStudy[] = [
-  caseStudy("barnes-rd", "Barnes Rd", todo("Barnes Rd: town and state")),
-  caseStudy("cr-475", "0 County Road 475", verify("Woodland, AL", stateCheck) as Slot<string>),
-  caseStudy("main-st", "791 Main St", "Wedowee, AL"),
-  caseStudy("gun-club-rd", "0 Gun Club Rd", verify("Tallapoosa, GA", stateCheck) as Slot<string>),
-  caseStudy("bethlehem-church-rd", "275 Bethlehem Church Rd", verify("Carrollton, GA", stateCheck) as Slot<string>),
+  {
+    ...caseStudy("barnes-rd", "Barnes Rd", "Bowdon, GA"),
+    problem: "It had an easement, and it sat at a luxury price point for the area.",
+  },
+  {
+    ...caseStudy("cr-475", "0 County Road 475", "Woodland, AL"),
+    problem: "It was down a dirt road where neighbors kept taking down Lindsey\u2019s sign.",
+  },
+  {
+    ...caseStudy("main-st", "791 N Main St", "Wedowee, AL"),
+    problem:
+      "The sellers parted ways with their previous agent two weeks after listing, citing too little marketing and too few showings. After seeing how Lindsey marketed her listings, they chose her to list it.",
+    result: "Under contract in 14 days.",
+  },
+  {
+    ...caseStudy("gun-club-rd", "0 Gun Club Rd", "Tallapoosa, GA"),
+    problem: "It was landlocked, with no road frontage or easements.",
+    strategy:
+      "Lindsey reached out to the neighboring property owners until she found one willing to buy it.",
+    result: "A neighboring owner was willing to buy it.",
+  },
+  {
+    ...caseStudy("bethlehem-church-rd", "275 Bethlehem Church Rd", "Carrollton, GA"),
+    problem: "The owners had bought the property three months earlier and needed to get a little more out of it.",
+    result: "Lindsey sold it for $25,000 more than they bought it for.",
+  },
 ];
 
 /** Where the testimonials come from: Lindsey's Google Business Profile. */
