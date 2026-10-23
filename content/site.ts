@@ -1,6 +1,6 @@
 import { todo, verify } from "@/lib/placeholders";
 import type { Slot } from "@/lib/placeholders";
-import type { ImageAsset, VideoAsset } from "./types";
+import type { ImageAsset } from "./types";
 
 export const recipient = {
   name: "Daniel Communities",
@@ -36,14 +36,6 @@ export const brokerage = {
 
 export const nonAffiliation =
   "This is an independent concept prepared by Lindsey Hammond of Triple R Real Estate LLC. It is not affiliated with, endorsed by, or approved by Laketown or Daniel Communities.";
-
-/** Section 01: Lindsey's personal message to Daniel Communities over lake footage. */
-export const heroMessage: VideoAsset = {
-  title: "A message for Daniel Communities from Lindsey",
-  vimeoId: todo("Vimeo ID of Lindsey's 30–60s message to Daniel Communities, filmed over original Lake Wedowee footage, with English captions"),
-  poster: todo("Poster still from the message video (1920×1080, water-level lake shot)"),
-  duration: todo("Runtime of the message, e.g. 0:48"),
-};
 
 export const footageNote = todo(
   "Confirm all lake footage was shot from the water or public access, with no drone flights over developer land (brief §3)",

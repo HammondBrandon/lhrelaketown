@@ -22,7 +22,7 @@ export type Source = { label: string; publisher: string; date: string; url: stri
 
 export type GalleryItem = {
   id: string;
-  category: "film" | "photography" | "campaign" | "behind-the-scenes";
+  category: "film" | "photography";
   title: Slot<string>;
   /** Property or context, e.g. "Lakefront listing, Heflin AL". */
   context: Slot<string>;
@@ -53,6 +53,8 @@ export type CaseStudy = {
   property: Slot<string>;
   location: Slot<string>;
   image: Slot<ImageAsset>;
+  /** What made the property difficult to market or sell. */
+  problem: Slot<string>;
   strategy: Slot<string>;
   marketingSteps: Slot<string[]>;
   timeline: Slot<string>;

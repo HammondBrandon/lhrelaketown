@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SlotText } from "@/components/ui/Placeholder";
-import { walkthrough, walkthroughProperty } from "@/content/work";
+import { walkthrough } from "@/content/work";
 import { WalkthroughOutput } from "./WalkthroughOutput";
 
 /**
@@ -48,16 +48,8 @@ export function Walkthrough() {
               What happens when Lindsey <em className="text-gold-700">takes on a property?</em>
             </>
           }
-          lead={
-            <>
-              Eight steps from one real campaign: <SlotText slot={walkthroughProperty.name} />. Each step shows what
-              was actually produced.
-            </>
-          }
+          lead="Eight steps that Lindsey goes through for every single listing."
         />
-        <p className="mt-4 text-sm text-ink-soft">
-          <SlotText slot={walkthroughProperty.permission} />
-        </p>
 
         <div className="mt-16 lg:mt-24 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
           <ol className="relative">

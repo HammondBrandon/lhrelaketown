@@ -81,14 +81,14 @@ export const launchPlan: PlanItem[] = [
   {
     id: "preview-event",
     title: "Carrollton-area preview event",
-    detail: verify("An invitation-only introduction for interested buyers and agents, featuring approved community information, lake footage and the purchase process. Guest interests are collected and followed up personally.", "Proposed plan: Lindsey to confirm") as Slot<string>,
+    detail: verify("An invitation-only introduction for interested buyers and agents, featuring approved community information, lake footage and the purchase process. Lindsey\u2019s local attorney has already committed to providing lunch for all participants to help generate interest. Guest interests are collected and followed up personally.", "Proposed plan: Lindsey to confirm. The attorney\u2019s lunch commitment is as reported to us; confirm it") as Slot<string>,
     timing: verify("Two to four weeks before the approved Phase 1 release.", "Proposed timing: Lindsey to confirm") as Slot<string>,
   },
   {
     id: "lake-day",
     title: "Buyer lake day",
-    detail: verify("Scheduled small-group boat tours departing from an established public access location or marina, introducing the lake and approved views of the community. Subject to developer approval and boat operator arrangements.", "Proposed plan: Lindsey to confirm") as Slot<string>,
-    timing: verify("During the first month of the release, with additional dates based on demand and weather.", "Proposed timing: Lindsey to confirm") as Slot<string>,
+    detail: verify("Scheduled small-group boat tours departing from an established public access location or marina, introducing the lake and approved views of the community. Lindsey\u2019s lender has committed to hosting a cookout for everyone who shows up. Subject to developer approval and boat operator arrangements.", "Proposed plan: Lindsey to confirm. The lender\u2019s cookout commitment is as reported to us; confirm it") as Slot<string>,
+    timing: "After the lake fills back up in the spring." as Slot<string>,
   },
   {
     id: "media",

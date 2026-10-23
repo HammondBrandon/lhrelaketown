@@ -8,19 +8,6 @@ export const stats: Stat[] = [
   { value: "53,959", label: "Average views per property listed" },
   { value: "7", label: "Sellers who were unhappy with their previous realtor and hired Lindsey to market their home" },
   { value: "15", label: "Properties sold in 2026 where Lindsey\u2019s marketing directly brought the buyer to the seller" },
-  {
-    value: todo("Lindsey's average days on market"),
-    label: todo("Label, e.g. 'Average days on market'"),
-    footnote: todo("Comparison baseline, e.g. MLS area average and period"),
-  },
-  {
-    value: todo("Sale-to-list price ratio"),
-    label: todo("Label for the sale-to-list stat"),
-  },
-  {
-    value: todo("Lake, land or new-construction sales, if any"),
-    label: todo("Label for the lake/land/new-construction stat"),
-  },
 ];
 
 /**
@@ -85,6 +72,7 @@ const caseStudy = (id: string, property: string, location: Slot<string>): CaseSt
   property,
   location,
   image: todo(`${property}: lead photo`),
+  problem: todo(`${property}: what made it difficult to market or sell`),
   strategy: todo(`${property}: the strategy, in one or two sentences`),
   marketingSteps: todo(`${property}: three to five marketing steps actually taken`),
   timeline: todo(`${property}: listing to close timeline`),
@@ -94,17 +82,9 @@ const caseStudy = (id: string, property: string, location: Slot<string>): CaseSt
 
 const stateCheck = "Confirm the state for this address";
 
-/** "Listings, in detail": five real listings. Barnes Rd has its listing video and Colton's review. */
+/** "Listings, in detail": five real listings. Colton's review is for Barnes Rd. */
 export const caseStudies: CaseStudy[] = [
-  {
-    ...caseStudy("barnes-rd", "Barnes Rd", todo("Barnes Rd: town and state")),
-    image: {
-      src: "/media/work/barnes-rd.jpg",
-      width: 1280,
-      height: 720,
-      alt: "Barnes Rd listing video, opening frame",
-    },
-  },
+  caseStudy("barnes-rd", "Barnes Rd", todo("Barnes Rd: town and state")),
   caseStudy("cr-475", "0 County Road 475", verify("Woodland, AL", stateCheck) as Slot<string>),
   caseStudy("main-st", "791 Main St", "Wedowee, AL"),
   caseStudy("gun-club-rd", "0 Gun Club Rd", verify("Tallapoosa, GA", stateCheck) as Slot<string>),

@@ -1,22 +1,15 @@
-import { HeroVideo } from "@/components/media/HeroVideo";
 import { LakeScene } from "@/components/media/LakeScene";
-import { TodoBlock } from "@/components/ui/Placeholder";
-import { isTodo, valueOf } from "@/lib/placeholders";
-import { heroMessage, nonAffiliation, recipient } from "@/content/site";
+import { nonAffiliation, recipient } from "@/content/site";
 
-/** 01 · A personal message to Daniel Communities. Lake first, "made for you" second, Lindsey third. */
+/** 01 · Lake first, "made for you" second. */
 export function Hero() {
-  const vimeoId = valueOf(heroMessage.vimeoId);
-  const poster = valueOf(heroMessage.poster);
-  const duration = valueOf(heroMessage.duration);
-
   return (
     <section
       id="message"
       aria-labelledby="hero-title"
       className="grain relative isolate flex min-h-svh flex-col overflow-hidden bg-forest-950 text-ivory-50"
     >
-      {!vimeoId && <LakeScene className="absolute inset-0 -z-10 h-full w-full" />}
+      <LakeScene className="absolute inset-0 -z-10 h-full w-full" />
 
       {/* Legibility scrims */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-t from-forest-950 via-forest-950/35 to-forest-950/50" />
@@ -48,21 +41,6 @@ export function Hero() {
             then shows the work we&rsquo;d bring to it.
           </p>
 
-          {vimeoId ? (
-            <HeroVideo
-              vimeoId={vimeoId}
-              vimeoHash={heroMessage.vimeoHash}
-              poster={poster}
-              duration={duration}
-              label="Hear Lindsey's message"
-            />
-          ) : (
-            <div className="mt-10 grid max-w-xl gap-3">
-              {isTodo(heroMessage.vimeoId) && (
-                <TodoBlock tone="dark" label="TODO · Hero video" note={heroMessage.vimeoId.note} />
-              )}
-            </div>
-          )}
         </div>
 
         <div className="mt-14 flex flex-col-reverse gap-6 border-t border-ivory-100/15 pt-5 sm:flex-row sm:items-end sm:justify-between">

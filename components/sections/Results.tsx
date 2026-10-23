@@ -198,6 +198,12 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
 
         <dl className="mt-8 grid gap-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
+            <dt className="eyebrow text-ink-soft/70">The problem</dt>
+            <dd className="mt-2 leading-relaxed">
+              <SlotText slot={study.problem} />
+            </dd>
+          </div>
+          <div className="sm:col-span-2">
             <dt className="eyebrow text-ink-soft/70">Strategy</dt>
             <dd className="mt-2 leading-relaxed">
               <SlotText slot={study.strategy} />

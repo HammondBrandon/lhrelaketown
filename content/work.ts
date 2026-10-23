@@ -231,40 +231,12 @@ export const gallery: GalleryItem[] = [
     },
     permission: verify(true, "Confirm the seller of the porch steps photos has OK'd showing them in a pitch (brief §9.2)"),
   },
-  {
-    id: "campaign-1",
-    category: "campaign",
-    title: todo("Marketing campaign #1 (ad, mailer, social series)"),
-    context: todo("What it promoted and where it ran"),
-    media: { kind: "image", image: todo("Campaign creative #1") },
-    permission: todo("Client permission for campaign #1"),
-  },
-  {
-    id: "bts-1",
-    category: "behind-the-scenes",
-    title: todo("Behind-the-scenes clip (shoot day, staging, open house)"),
-    context: todo("Context for the behind-the-scenes clip"),
-    media: {
-      kind: "video",
-      video: {
-        title: "Behind the scenes",
-        vimeoId: todo("Vimeo ID: behind-the-scenes clip"),
-        poster: todo("Poster still for behind-the-scenes clip"),
-        duration: todo("Runtime, behind-the-scenes clip"),
-      },
-    },
-    permission: todo("Permission for behind-the-scenes clip"),
-  },
 ];
 
 /**
- * Signature feature (brief §5): one real past campaign, step by step.
+ * Signature feature (brief §5): the steps Lindsey takes on every listing.
  * Each step shows an output, not a paragraph describing it.
  */
-export const walkthroughProperty = {
-  name: verify("Vineyard Road, Fruithurst, AL", "Confirm Vineyard Road is the campaign to feature in the walkthrough"),
-  permission: todo("Client permission to feature this campaign, numbers included"),
-};
 
 export const walkthrough: WalkthroughStep[] = [
   {

@@ -12,8 +12,6 @@ const filters = [
   { id: "all", label: "All work" },
   { id: "film", label: "Listing videos" },
   { id: "photography", label: "Photography" },
-  { id: "campaign", label: "Campaigns" },
-  { id: "behind-the-scenes", label: "Behind the scenes" },
 ] as const;
 
 type FilterId = (typeof filters)[number]["id"];

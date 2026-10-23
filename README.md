@@ -40,7 +40,7 @@ To resolve an item, replace `todo("…")` with the real value. To confirm a `ver
 
 | File | Section |
 | --- | --- |
-| `content/site.ts` | Hero message video, Lindsey, Triple R, non-affiliation statement |
+| `content/site.ts` | Lindsey, Triple R, non-affiliation statement |
 | `content/understanding.ts` | 02: verified public facts and sources |
 | `content/work.ts` | 03 gallery and the "What happens when Lindsey takes on a property?" walkthrough |
 | `content/results.ts` | 04: stats, case studies, testimonials, capacity answer |
@@ -65,7 +65,7 @@ To resolve an item, replace `todo("…")` with the real value. To confirm a `ver
 
 These components don't depend on the pitch page and can carry over to a real Laketown North marketing site:
 
-- `HeroVideo`, `VideoFacade`, `Lightbox` and `MediaImage` in `components/media`
+- `VideoFacade`, `Lightbox` and `MediaImage` in `components/media`
 - `WorkGallery`
 - `CaseStudyCard`, in `Results`
 - `ConceptDemo` panels
