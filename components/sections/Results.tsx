@@ -85,6 +85,25 @@ export function Results() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="lg:col-span-2">
+            <h4 className="font-display text-3xl text-ivory-50 sm:text-4xl">{reach.ninetyDay.heading}</h4>
+            <p className="mt-3 max-w-2xl leading-relaxed text-ivory-100/75">{reach.ninetyDay.statement}</p>
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {reach.ninetyDay.screenshots.map((img) => (
+                <div key={img.src} className="overflow-hidden rounded-sm border border-ivory-100/15 shadow-2xl">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.width}
+                    height={img.height}
+                    sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
 
         {/* Case studies */}

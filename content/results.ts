@@ -33,8 +33,29 @@ export const reach = {
   highlights: [
     { value: "13", label: "posts over 31,000 views each on the business page" },
     { value: "56,381", label: "views on her top personal-page post, a land listing with a private lake" },
+    { value: "2.2M", label: "views across her two pages in the last 90 days (July 16 to October 13)" },
     { value: "2", label: "pages she markets on, with listings cross-posted to both" },
   ],
+  /** Facebook Insights, "Last 90 days: Jul 16 – Oct 13". Which page is which is deliberately not stated. */
+  ninetyDay: {
+    heading: "The last 90 days",
+    statement:
+      "Across July 16 to October 13, her two pages recorded 1,248,417 and 960,608 views, up 49% and 30% on the 90 days before.",
+    screenshots: [
+      {
+        src: "/media/work/social/90-day-views-a.png",
+        width: 1086,
+        height: 392,
+        alt: "Facebook Insights for the last 90 days, July 16 to October 13: 1,248,417 views, up 49%",
+      },
+      {
+        src: "/media/work/social/90-day-views-b.png",
+        width: 1076,
+        height: 392,
+        alt: "Facebook Insights for the last 90 days, July 16 to October 13: 960,608 views, up 30%",
+      },
+    ] satisfies ImageAsset[],
+  },
   screenshots: [
     {
       label: "Business page",
