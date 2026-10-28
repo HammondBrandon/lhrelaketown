@@ -252,7 +252,12 @@ export const walkthrough: WalkthroughStep[] = [
     id: "shoot",
     title: "Photo and video shoot",
     summary: "Rarely will you find a realtor with an in-house photographer and videographer. They work hand-in-hand on-site to decide on the best angles and shots to take for each shoot. Her photos and videos truly stand out in the mix.",
-    video: { title: "Photo and video shoot", vimeoId: "1240345015" },
+    video: {
+      title: "Photo and video shoot",
+      vimeoId: "1240345015",
+      poster: { src: "/media/work/steps/shoot-poster.jpg", width: 1280, height: 720, alt: "Opening frame: an aerial photo of a rural home set into a vintage photo album page captioned \u201cOur Old Home \u2013 Spring 1987\u201d" },
+      duration: "1:18",
+    },
   },
   {
     id: "launch",
