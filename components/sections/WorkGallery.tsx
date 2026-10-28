@@ -102,8 +102,8 @@ function Tile({ item, onOpen }: { item: GalleryItem; onOpen?: () => void }) {
   const { media } = item;
   const isVideo = media.kind === "video";
   const still = isVideo ? media.video.poster : media.image;
-  const stillValue = valueOf(still);
-  const duration = isVideo ? valueOf(media.video.duration) : undefined;
+  const stillValue = still ? valueOf(still) : undefined;
+  const duration = isVideo && media.video.duration ? valueOf(media.video.duration) : undefined;
   // Surface the most fundamental missing piece: the video itself, then its still.
   const missing = isVideo && isTodo(media.video.vimeoId) ? media.video.vimeoId : still;
   const categoryLabel = filters.find((f) => f.id === item.category)?.label;

@@ -11,6 +11,7 @@ export function MediaImage({
   tone = "light",
   className = "",
   priority = false,
+  quality = 75,
 }: {
   image: Slot<ImageAsset>;
   sizes: string;
@@ -18,19 +19,20 @@ export function MediaImage({
   tone?: "light" | "dark";
   className?: string;
   priority?: boolean;
+  quality?: number;
 }) {
   if (isTodo(image)) {
     return <TodoBlock note={image.note} aspect={aspect} tone={tone} className={`h-full w-full ${className}`} />;
   }
   const img = valueOf(image)!;
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ aspectRatio: aspect }}>
+    <div className={`relative w-full overflow-hidden ${className}`} style={{ aspectRatio: aspect }}>
       <Image
         src={img.src}
         alt={img.alt}
         fill
         sizes={sizes}
-        quality={75}
+        quality={quality}
         priority={priority}
         className="object-cover"
       />

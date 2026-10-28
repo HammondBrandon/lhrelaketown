@@ -1,14 +1,14 @@
 import type { Slot } from "@/lib/placeholders";
 
-/** A Vimeo-hosted video. `poster` is a local still in /public/media. */
+/** A Vimeo-hosted video. `poster` is a local still in /public/media; without one the player shows a plain frame. */
 export type VideoAsset = {
   vimeoId: Slot<string>;
   /** Optional unlisted-video hash (the part after the ID in a private link). */
   vimeoHash?: string;
-  poster: Slot<ImageAsset>;
+  poster?: Slot<ImageAsset>;
   title: string;
   /** Human-readable runtime, e.g. "0:48". */
-  duration: Slot<string>;
+  duration?: Slot<string>;
 };
 
 export type ImageAsset = {
@@ -33,33 +33,29 @@ export type GalleryItem = {
   permission: Slot<true>;
 };
 
-export type WalkthroughOutput =
-  | { kind: "image"; image: Slot<ImageAsset>; caption: Slot<string> }
-  | { kind: "video"; video: VideoAsset; caption: Slot<string> }
-  | { kind: "metric"; value: Slot<string>; label: string; detail: Slot<string> }
-  | { kind: "timestamps"; events: Slot<{ time: string; label: string }[]>; caption: Slot<string> };
-
 export type WalkthroughStep = {
   id: string;
   title: string;
-  summary: Slot<string>;
-  output: WalkthroughOutput;
+  summary: string;
+  /** What this step produced, shown beside the step: a still, or a video. */
+  image?: Slot<ImageAsset>;
+  video?: VideoAsset;
 };
 
 export type Stat = { value: Slot<string>; label: Slot<string>; footnote?: Slot<string> };
 
 export type CaseStudy = {
   id: string;
-  property: Slot<string>;
-  location: Slot<string>;
+  property: string;
+  location: string;
   image: Slot<ImageAsset>;
   /** What made the property difficult to market or sell. */
-  problem: Slot<string>;
-  strategy: Slot<string>;
-  marketingSteps: Slot<string[]>;
-  timeline: Slot<string>;
-  result: Slot<string>;
-  permission: Slot<true>;
+  problem: string;
+  strategy?: string;
+  marketingSteps?: string[];
+  /** When it listed, when it went under contract (binding), and the days between. */
+  timeline: { listed: string; underContract: string; daysToContract: number };
+  result?: string;
 };
 
 export type Testimonial = {
@@ -85,13 +81,9 @@ export type ReachScreenshot = {
 
 export type CapacityItem = { question: string; answer: Slot<string> };
 
-export type MarketRow = {
-  area: string;
-  active: number;
-  sold12mo: number;
-  medianSoldPerWaterfrontFt: string;
-  medianDom: number;
-  note?: string;
+export type MarketMeasure = {
+  label: string;
+  value: string;
 };
 
 export type PlanItem = { id: string; title: string; detail: Slot<string>; timing: Slot<string> };

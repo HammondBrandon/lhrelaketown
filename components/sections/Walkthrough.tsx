@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SlotText } from "@/components/ui/Placeholder";
 import { walkthrough } from "@/content/work";
 import { WalkthroughOutput } from "./WalkthroughOutput";
 
@@ -68,12 +67,12 @@ export function Walkthrough() {
                   </p>
                   <h3 className="mt-3 text-4xl text-forest-900 sm:text-5xl">{s.title}</h3>
                   <p className="mt-4 max-w-md text-lg leading-relaxed text-ink-soft">
-                    <SlotText slot={s.summary} />
+                    {s.summary}
                   </p>
                 </div>
                 {/* Mobile and tablet: output inline */}
                 <div className="mt-8 lg:hidden">
-                  <WalkthroughOutput output={s.output} stepId={s.id} />
+                  <WalkthroughOutput image={s.image} video={s.video} stepId={s.id} />
                 </div>
               </li>
             ))}
@@ -99,7 +98,7 @@ export function Walkthrough() {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <WalkthroughOutput output={step.output} stepId={step.id} />
+                  <WalkthroughOutput image={step.image} video={step.video} stepId={step.id} />
                 </motion.div>
               </AnimatePresence>
             </div>

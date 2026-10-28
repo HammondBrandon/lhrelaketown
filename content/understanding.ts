@@ -1,8 +1,7 @@
-import { verify } from "@/lib/placeholders";
 import type { Source } from "./types";
 
 /**
- * Section 02. Only the verified public facts from the brief (§2).
+ * Section 01. Only the verified public facts from the brief (§2).
  * Laketown North's lot sizes, pricing, amenities, covenants and timeline are
  * not public. Do not add them here.
  */
@@ -61,9 +60,6 @@ export const whyItMatters = [
   },
   {
     title: "For buyers",
-    body: verify(
-      "Lake Wedowee covers roughly 10,660 acres within about 100 miles of both Birmingham and Atlanta, and it already draws visitors from Atlanta and Newnan. That West Georgia corridor is where Lindsey works every day.",
-      "Verify acreage, distances and the Atlanta/Newnan claim against the Encyclopedia of Alabama, and set the exact article URL in sources.encyclopedia",
-    ),
+    body: "Lake Wedowee covers roughly 10,660 acres within about 100 miles of both Birmingham and Atlanta, and it already draws visitors from Atlanta and Newnan. That West Georgia corridor is where Lindsey works every day.",
   },
 ];

@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { track } from "@/lib/analytics";
 
 const chapters = [
-  { id: "message", n: "01", label: "A message for you" },
-  { id: "understanding", n: "02", label: "What you're building" },
-  { id: "work", n: "03", label: "The work" },
+  { id: "message", n: "", label: "A message for you" },
+  { id: "understanding", n: "01", label: "What you're building" },
+  { id: "work", n: "02", label: "The work" },
   { id: "walkthrough", n: "03", label: "One listing, start to finish" },
   { id: "results", n: "04", label: "Results" },
   { id: "concept", n: "05", label: "For Laketown North" },
@@ -70,7 +70,7 @@ export function ChapterNav({ recipient }: { recipient: string }) {
             <p className="flex min-w-0 items-center gap-3 text-sm">
               <span className="hidden shrink-0 opacity-60 sm:inline">For {recipient}</span>
               <span aria-hidden className="hidden h-4 w-px bg-current opacity-25 sm:inline" />
-              <span className="font-display text-base italic opacity-60">{chapter.n}</span>
+              {chapter.n && <span className="font-display text-base italic opacity-60">{chapter.n}</span>}
               <span className="truncate">{chapter.label}</span>
             </p>
             <a

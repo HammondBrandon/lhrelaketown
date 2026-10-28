@@ -2,7 +2,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { gallery } from "@/content/work";
 import { WorkGallery } from "./WorkGallery";
 
-/** 03 · This is what working with Lindsey looks like. The strongest section. */
+/** 02 · This is what working with Lindsey looks like. The strongest section. */
 export function Work() {
   return (
     <section
@@ -13,7 +13,7 @@ export function Work() {
       <div className="mx-auto max-w-7xl px-5 sm:px-10">
         <SectionHeader
           id="work-title"
-          number="03"
+          number="02"
           tone="dark"
           eyebrow="The work"
           title={

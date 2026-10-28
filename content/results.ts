@@ -1,5 +1,3 @@
-import { todo, verify } from "@/lib/placeholders";
-import type { Slot } from "@/lib/placeholders";
 import type { CapacityItem, CaseStudy, ImageAsset, ReachScreenshot, Stat, Testimonial } from "./types";
 
 /** Section 04: real transaction performance only (brief §4, §9.3). */
@@ -18,9 +16,9 @@ export const reach = {
   heading: "Where her listings get seen",
   lead: "Lindsey promotes listings on her business and personal Facebook pages, TikTok, YouTube, Instagram and LinkedIn, along with dedicated property webpages, digital advertising and agent outreach. These are her most-viewed recent Facebook posts, straight from the Content Library.",
   highlights: [
-    { value: "13", label: "posts with over 31,000 views each on the business page" },
-    { value: "56,381", label: "views on her personal page alone for one of her most recent land listings" },
     { value: "2.2M", label: "views across her two pages in the last 90 days (July 16 to October 13)" },
+    { value: "56,381", label: "views on her personal page alone for one of her most recent land listings" },
+    { value: "13", label: "posts with over 31,000 views each on the business page" },
     { value: "2", label: "pages she uses to market your property, which means double the exposure, with the average property listing seeing 53,959 views" },
   ],
   /** Facebook Insights, "Last 90 days: Jul 16 – Oct 13". Which page is which is deliberately not stated. */
@@ -67,23 +65,13 @@ export const reach = {
   ] satisfies ReachScreenshot[],
 };
 
-const caseStudy = (id: string, property: string, location: Slot<string>): CaseStudy => ({
-  id: `case-${id}`,
-  property,
-  location,
-  image: todo(`${property}: lead photo`),
-  problem: todo(`${property}: what made it difficult to market or sell`),
-  strategy: todo(`${property}: the strategy, in one or two sentences`),
-  marketingSteps: todo(`${property}: three to five marketing steps actually taken`),
-  timeline: todo(`${property}: listing to close timeline`),
-  result: todo(`${property}: the result, e.g. sale price vs. list and days on market`),
-  permission: todo(`${property}: client permission`),
-});
-
 /** "Listings, in detail": six real listings, each written in Lindsey's third person. Colton's review is for Barnes Rd. */
 export const caseStudies: CaseStudy[] = [
   {
-    ...caseStudy("barnes-rd", "Barnes Rd", "Bowdon, GA"),
+    id: "case-barnes-rd",
+    property: "Barnes Rd",
+    location: "Bowdon, GA",
+    image: { src: "/media/work/listings/barnes-rd.jpg", width: 1600, height: 900, alt: "Aerial view of a large new home on a cleared lot in the middle of dense woodland, with a pond in the distance" },
     problem: "It had an easement, and it sat at a luxury price point for the area.",
     strategy:
       "Lindsey intentionally marketed the home to people closer to Atlanta, and to those drawn to the deer hunting and fishing that come with the property, rather than worrying about the easement.",
@@ -92,10 +80,14 @@ export const caseStudies: CaseStudy[] = [
       "Added niche details such as hunting and fishing",
       "Scheduled an agent open house to generate extra attention",
     ],
+    timeline: { listed: "June 19, 2026", underContract: "July 17, 2026", daysToContract: 28 },
     result: "Sold to a family from out toward Atlanta, who were the first to tour the property.",
   },
   {
-    ...caseStudy("main-st", "791 N Main St", "Wedowee, AL"),
+    id: "case-main-st",
+    property: "791 N Main St",
+    location: "Wedowee, AL",
+    image: { src: "/media/work/listings/main-st.jpg", width: 1600, height: 900, alt: "Aerial view along a highway toward a bridge over the lake, with a home beside the road and woods all around" },
     problem:
       "The sellers parted ways with their previous agent two weeks after listing, citing too little marketing and too few showings. After seeing how Lindsey marketed her listings, they chose her to list it.",
     strategy: "Target two groups: first-time home buyers, and people looking for a cheaper lake getaway.",
@@ -104,21 +96,29 @@ export const caseStudies: CaseStudy[] = [
       "Ran the numbers for first-time buyers and marketed how low the payment could be",
       "Ran a campaign aimed at people in Carroll County and Douglasville looking for a getaway",
     ],
+    timeline: { listed: "July 31, 2026", underContract: "August 14, 2026", daysToContract: 14 },
     result:
       "Under contract in 14 days, and sold to a first-time home buyer who found it directly through Lindsey\u2019s marketing.",
   },
   {
-    ...caseStudy("gun-club-rd", "0 Gun Club Rd", "Tallapoosa, GA"),
+    id: "case-gun-club-rd",
+    property: "0 Gun Club Rd",
+    location: "Tallapoosa, GA",
+    image: { src: "/media/work/listings/gun-club-rd.jpg", width: 1600, height: 1200, alt: "Aerial view of an unbroken stand of pines and fall hardwoods" },
     problem: "It was landlocked, with no road frontage or easements.",
     strategy: "Reach out to nearby owners to see if anyone was interested.",
     marketingSteps: [
       "Personally reached out to every neighbor with nearby land to see if they wanted to expand their property",
       "Reached out to investors who might want a tract of land to hold as an investment",
     ],
+    timeline: { listed: "November 6, 2025", underContract: "December 1, 2025", daysToContract: 25 },
     result: "One of the investors bought the property to hold onto.",
   },
   {
-    ...caseStudy("bethlehem-church-rd", "275 Bethlehem Church Rd", "Carrollton, GA"),
+    id: "case-bethlehem-church-rd",
+    property: "275 Bethlehem Church Rd",
+    location: "Carrollton, GA",
+    image: { src: "/media/work/listings/bethlehem-church-rd.jpg", width: 1600, height: 1200, alt: "Aerial view of a new single-story ranch home with a covered front porch, surrounded by trees" },
     problem: "The owners had bought the property three months earlier and needed to get a little more out of it.",
     strategy: "Make enough money for the owners to cover all of their costs.",
     marketingSteps: [
@@ -126,10 +126,14 @@ export const caseStudies: CaseStudy[] = [
       "Targeted people looking for a true ranch with no steps",
       "Reached out to neighboring towns, since the property sits so close to I-20",
     ],
+    timeline: { listed: "June 21, 2025", underContract: "July 11, 2025", daysToContract: 20 },
     result: "Sold to a buyer who needed something new without steps, for $25,000 more than the owners paid.",
   },
   {
-    ...caseStudy("shiloh-church-rd", "24 Shiloh Church Rd", "Whitesburg, GA"),
+    id: "case-shiloh-church-rd",
+    property: "24 Shiloh Church Rd",
+    location: "Whitesburg, GA",
+    image: { src: "/media/work/listings/shiloh-church-rd.jpg", width: 1600, height: 1200, alt: "Aerial view of a house on a clearing in rolling woodland, with country roads and a power line corridor" },
     problem: "The seller lived in New York and had only seen the property in photos.",
     strategy:
       "The seller trusted Lindsey to make the big decisions, so she coordinated all of the work the home needed, including getting the locks changed.",
@@ -138,6 +142,7 @@ export const caseStudies: CaseStudy[] = [
       "Ran posts in investor groups",
       "Virtually transformed the space to give potential buyers the vision",
     ],
+    timeline: { listed: "June 27, 2025", underContract: "July 12, 2025", daysToContract: 15 },
     result: "An investor bought it and flipped it into a beautiful place.",
   },
 ];
@@ -171,7 +176,7 @@ const googleReview = (
   context,
   source: "Google",
   related,
-  permission: verify(true, `Confirm ${name} is comfortable being quoted on this page (public Google review)`),
+  permission: true,
 });
 
 export const testimonials: Testimonial[] = [
@@ -212,10 +217,7 @@ export const testimonials: Testimonial[] = [
 export const capacity: CapacityItem[] = [
   {
     question: "Who covers showings when Lindsey is at another closing?",
-    answer: verify(
-      "A designated licensed backup agent covers showings, using access procedures approved by the developer.",
-      "Name the backup agent: the notes say both Brandon and Miho. Confirm who it is and how handoffs work",
-    ) as Slot<string>,
+    answer: "A designated licensed backup agent covers showings, using access procedures approved by the developer.",
   },
   {
     question: "Who keeps contracts moving?",
@@ -224,16 +226,10 @@ export const capacity: CapacityItem[] = [
   },
   {
     question: "How fast are leads answered?",
-    answer: verify(
-      "Lindsey's CRM and automations manage, track and follow up on every lead. Miho handles client-related communication and serves as Lindsey's backup, so replies stay timely and follow-up stays consistent.",
-      "Confirm the one-hour personal reply commitment and who covers evenings and weekends before publishing it",
-    ) as Slot<string>,
+    answer: "Lindsey's CRM and automations manage, track and follow up on every lead. Miho handles client-related communication and serves as Lindsey's backup, so replies stay timely and follow-up stays consistent.",
   },
   {
     question: "When is Lindsey at the lake?",
-    answer: verify(
-      "A regular Saturday appointment window during launch, with weekday appointments by arrangement.",
-      "Lindsey needs to confirm this on-site commitment",
-    ) as Slot<string>,
+    answer: "A regular Saturday appointment window during launch, with weekday appointments by arrangement.",
   },
 ];

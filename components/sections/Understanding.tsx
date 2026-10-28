@@ -3,14 +3,14 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SlotText } from "@/components/ui/Placeholder";
 import { facts, laketown, site, sources, whyItMatters } from "@/content/understanding";
 
-/** 02 · We understand what you're building. Verified public facts only. */
+/** 01 · We understand what you're building. Verified public facts only. */
 export function Understanding() {
   return (
     <section id="understanding" aria-labelledby="understanding-title" className="relative bg-ivory-50 py-24 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-10">
         <SectionHeader
           id="understanding-title"
-          number="02"
+          number="01"
           eyebrow="What you're building"
           title={
             <>

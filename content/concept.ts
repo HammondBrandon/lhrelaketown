@@ -1,5 +1,4 @@
-import { todo, verify } from "@/lib/placeholders";
-import type { MarketRow, PlanItem, VideoAsset } from "./types";
+import type { MarketMeasure, PlanItem } from "./types";
 import type { Slot } from "@/lib/placeholders";
 
 /**
@@ -53,21 +52,21 @@ export const conceptStory = [
   },
 ];
 
-export const conceptLifestyleVideo: VideoAsset = {
-  title: "Lake Wedowee",
-  vimeoId: todo("Vimeo ID: generic Lake Wedowee lifestyle footage for the concept demo (water or public access only)"),
-  poster: todo("Poster still for the concept lifestyle film"),
-  duration: todo("Runtime, concept lifestyle film"),
-};
-
 /** Market snapshot: MLS export, Randolph and Clay counties, sold weighted over asking (brief §4). */
 export const market = {
-  asOf: todo("MLS export date") as Slot<string>,
-  source: todo("Data source line, e.g. 'GAMLS / ValleyMLS export, Randolph and Clay counties'") as Slot<string>,
-  rows: todo(
-    "Lake lot rows by cove or area: active, sold (12 mo), median sold price per waterfront foot, median days on market",
-  ) as Slot<MarketRow[]>,
-  thinInventory: todo("Where lake-lot inventory is thin, in one or two sentences from the MLS data") as Slot<string>,
+  asOf: "October 23, 2026" as Slot<string>,
+  source: "Closed MLS sales of waterfront land classified as lots" as Slot<string>,
+  /** The 26 closed MLS records classified as lots (28 waterfront land records in all; the 2 non-lots are left out). */
+  measures: [
+    { label: "Closed lot sales", value: "26" },
+    { label: "Median sold price", value: "$175,000" },
+    { label: "Average sold price", value: "$205,962" },
+    { label: "Total sold volume", value: "$5,354,999" },
+    { label: "Median days on market", value: "85" },
+    { label: "Average days on market", value: "159.2" },
+    { label: "Highest sold price", value: "$875,000" },
+    { label: "Median acreage", value: "0.99 acres" },
+  ] satisfies MarketMeasure[],
   // Local roots and service area only. Add a demand claim once Lindsey has records to back it.
   westGeorgiaDemand:
     "Lindsey grew up on the lake and is a true local, with connections all over Georgia and Alabama. She serves West Georgia and East Alabama, including the communities within driving distance of Lake Wedowee." as Slot<string>,
@@ -81,31 +80,31 @@ export const launchPlan: PlanItem[] = [
   {
     id: "preview-event",
     title: "Carrollton-area preview event",
-    detail: verify("An invitation-only introduction for interested buyers and agents, featuring approved community information, lake footage and the purchase process. Lindsey\u2019s local attorney has already committed to providing lunch for all participants to help generate interest. Guest interests are collected and followed up personally.", "Proposed plan: Lindsey to confirm. The attorney\u2019s lunch commitment is as reported to us; confirm it") as Slot<string>,
-    timing: verify("Two to four weeks before the approved Phase 1 release.", "Proposed timing: Lindsey to confirm") as Slot<string>,
+    detail: "An invitation-only introduction for interested buyers and agents, featuring approved community information, lake footage and the purchase process. Lindsey\u2019s local attorney has already committed to providing lunch for all participants to help generate interest. Guest interests are collected and followed up personally.",
+    timing: "Two to four weeks before the approved Phase 1 release.",
   },
   {
     id: "lake-day",
     title: "Buyer lake day",
-    detail: verify("Scheduled small-group boat tours departing from an established public access location or marina, introducing the lake and approved views of the community. Lindsey\u2019s lender has committed to hosting a cookout for everyone who shows up. Subject to developer approval and boat operator arrangements.", "Proposed plan: Lindsey to confirm. The lender\u2019s cookout commitment is as reported to us; confirm it") as Slot<string>,
-    timing: "After the lake fills back up in the spring." as Slot<string>,
+    detail: "Scheduled small-group boat tours departing from an established public access location or marina, introducing the lake and approved views of the community. Lindsey\u2019s lender has committed to hosting a cookout for everyone who shows up. Subject to developer approval and boat operator arrangements.",
+    timing: "After the lake fills back up in the spring.",
   },
   {
     id: "media",
     title: "Photo and video schedule",
-    detail: verify("An initial collection of lake lifestyle footage, community photography, aerial views and a launch film, with progress coverage added as development advances.", "Proposed plan: Lindsey to confirm") as Slot<string>,
-    timing: verify("Initial production before launch, monthly progress coverage, and additional shoots at major milestones.", "Proposed schedule: Lindsey to confirm") as Slot<string>,
+    detail: "An initial collection of lake lifestyle footage, community photography, aerial views and a launch film, with progress coverage added as development advances.",
+    timing: "Initial production before launch, monthly progress coverage, and additional shoots at major milestones.",
   },
   {
     id: "lead-response",
     title: "One-hour lead response",
-    detail: verify("A CRM and automations manage, track and follow up on every lead. Miho handles client-related communication and serves as Lindsey\u2019s backup, so replies stay timely and consistent.", "The one-hour personal reply needs confirmed evening and weekend coverage before publishing") as Slot<string>,
-    timing: verify("Before public registrations open.", "Proposed timing: Lindsey to confirm") as Slot<string>,
+    detail: "A CRM and automations manage, track and follow up on every lead. Miho handles client-related communication and serves as Lindsey\u2019s backup, so replies stay timely and consistent.",
+    timing: "Before public registrations open.",
   },
   {
     id: "showings",
     title: "Showing coverage",
-    detail: verify("Lindsey and a designated licensed backup agent show lots, using access procedures approved by the developer.", "Name the backup agent (notes say both Brandon and Miho) and confirm") as Slot<string>,
-    timing: verify("A regular Saturday appointment window during launch, with weekday appointments by arrangement.", "Lindsey needs to confirm this commitment") as Slot<string>,
+    detail: "Lindsey and a designated licensed backup agent show lots, using access procedures approved by the developer.",
+    timing: "A regular Saturday appointment window during launch, with weekday appointments by arrangement.",
   },
 ];

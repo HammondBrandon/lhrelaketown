@@ -173,7 +173,6 @@ export function Results() {
 }
 
 function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
-  const steps = study.marketingSteps;
   return (
     <Reveal
       as="article"
@@ -189,61 +188,53 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
       </div>
       <div className="p-7 sm:p-10">
         <p className="eyebrow text-gold-700">Case study {String(index + 1).padStart(2, "0")}</p>
-        <h4 className="mt-3 text-3xl text-forest-900 sm:text-4xl">
-          <SlotText slot={study.property} />
-        </h4>
-        <p className="mt-1 text-ink-soft">
-          <SlotText slot={study.location} />
-        </p>
+        <h4 className="mt-3 text-3xl text-forest-900 sm:text-4xl">{study.property}</h4>
+        <p className="mt-1 text-ink-soft">{study.location}</p>
 
-        <dl className="mt-8 grid gap-6 sm:grid-cols-2">
-          <div className="sm:col-span-2">
+        <dl className="mt-8 grid gap-6">
+          <div>
             <dt className="eyebrow text-ink-soft/70">The problem</dt>
-            <dd className="mt-2 leading-relaxed">
-              <SlotText slot={study.problem} />
-            </dd>
+            <dd className="mt-2 leading-relaxed">{study.problem}</dd>
           </div>
-          <div className="sm:col-span-2">
-            <dt className="eyebrow text-ink-soft/70">Strategy</dt>
-            <dd className="mt-2 leading-relaxed">
-              <SlotText slot={study.strategy} />
-            </dd>
-          </div>
-          <div className="sm:col-span-2">
-            <dt className="eyebrow text-ink-soft/70">Marketing</dt>
-            <dd className="mt-2">
-              {isTodo(steps) ? (
-                <SlotText slot={steps} />
-              ) : (
+          {study.strategy && (
+            <div>
+              <dt className="eyebrow text-ink-soft/70">Strategy</dt>
+              <dd className="mt-2 leading-relaxed">{study.strategy}</dd>
+            </div>
+          )}
+          {study.marketingSteps && (
+            <div>
+              <dt className="eyebrow text-ink-soft/70">Marketing</dt>
+              <dd className="mt-2">
                 <ol className="space-y-1.5">
-                  {valueOf(steps)!.map((s, i) => (
-                    <li key={s} className="flex gap-3">
+                  {study.marketingSteps.map((step, i) => (
+                    <li key={step} className="flex gap-3">
                       <span className="font-display text-gold-700 italic">{i + 1}</span>
-                      {s}
+                      {step}
                     </li>
                   ))}
                 </ol>
-              )}
-            </dd>
-          </div>
+              </dd>
+            </div>
+          )}
           <div>
             <dt className="eyebrow text-ink-soft/70">Timeline</dt>
             <dd className="mt-2">
-              <SlotText slot={study.timeline} />
+              <span className="font-display text-2xl text-forest-900">
+                {study.timeline.daysToContract} days to contract
+              </span>
+              <span className="mt-1 block text-sm text-ink-soft">
+                Listed {study.timeline.listed} · Under contract {study.timeline.underContract}
+              </span>
             </dd>
           </div>
-          <div>
-            <dt className="eyebrow text-ink-soft/70">Result</dt>
-            <dd className="mt-2 font-display text-2xl text-forest-900">
-              <SlotText slot={study.result} />
-            </dd>
-          </div>
+          {study.result && (
+            <div>
+              <dt className="eyebrow text-ink-soft/70">Result</dt>
+              <dd className="mt-2 font-display text-2xl text-forest-900">{study.result}</dd>
+            </div>
+          )}
         </dl>
-        {isTodo(study.permission) && (
-          <p className="mt-6 text-xs">
-            <SlotText slot={study.permission} />
-          </p>
-        )}
       </div>
     </Reveal>
   );

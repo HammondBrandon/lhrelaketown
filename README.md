@@ -41,8 +41,8 @@ To resolve an item, replace `todo("…")` with the real value. To confirm a `ver
 | File | Section |
 | --- | --- |
 | `content/site.ts` | Lindsey, Triple R, non-affiliation statement |
-| `content/understanding.ts` | 02: verified public facts and sources |
-| `content/work.ts` | 03 gallery and the "What happens when Lindsey takes on a property?" walkthrough |
+| `content/understanding.ts` | 01: verified public facts and sources |
+| `content/work.ts` | 02 gallery and 03 "What happens when Lindsey takes on a property?" walkthrough |
 | `content/results.ts` | 04: stats, case studies, testimonials, capacity answer |
 | `content/concept.ts` | 05: concept demo, market snapshot, 90-day plan |
 | `content/contact.ts` | 06: Lindsey's note to Daniel Communities |

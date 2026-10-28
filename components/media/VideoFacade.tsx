@@ -25,8 +25,8 @@ export function VideoFacade({
 }) {
   const [playing, setPlaying] = useState(false);
   const id = valueOf(video.vimeoId);
-  const poster = valueOf(video.poster);
-  const duration = valueOf(video.duration);
+  const poster = video.poster ? valueOf(video.poster) : undefined;
+  const duration = video.duration ? valueOf(video.duration) : undefined;
 
   if (!id) {
     const note = isTodo(video.vimeoId) ? video.vimeoId.note : "Video missing";

@@ -1,7 +1,7 @@
-import { LakeScene } from "@/components/media/LakeScene";
+import Image from "next/image";
 import { nonAffiliation, recipient } from "@/content/site";
 
-/** 01 · Lake first, "made for you" second. */
+/** Lake first, "made for you" second. The photo is cropped to the water; the house below it is left out. */
 export function Hero() {
   return (
     <section
@@ -9,7 +9,15 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="grain relative isolate flex min-h-svh flex-col overflow-hidden bg-forest-950 text-ivory-50"
     >
-      <LakeScene className="absolute inset-0 -z-10 h-full w-full" />
+      <Image
+        src="/media/hero/lake-aerial.jpg"
+        alt="Aerial view of Lake Wedowee: a wooded peninsula, boat docks and open water"
+        fill
+        priority
+        quality={90}
+        sizes="100vw"
+        className="-z-10 object-cover object-[55%_30%]"
+      />
 
       {/* Legibility scrims */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-t from-forest-950 via-forest-950/35 to-forest-950/50" />

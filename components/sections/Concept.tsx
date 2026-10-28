@@ -27,7 +27,7 @@ export function Concept() {
               Here&rsquo;s what we could build <em className="text-gold-200">for Laketown North.</em>
             </>
           }
-          lead="Try an example instead of reading a promise. Every piece has a job: selling the lake, telling the story, capturing leads, and staying quiet about inventory until you decide otherwise."
+          lead="Every piece has a job: selling the lake, telling the story, capturing leads, and staying quiet about inventory until you decide otherwise."
         />
 
         <Reveal className="mt-6">

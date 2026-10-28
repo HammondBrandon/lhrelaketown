@@ -1,4 +1,3 @@
-import { SlotText } from "@/components/ui/Placeholder";
 import { agent, brokerage, nonAffiliation, recipient } from "@/content/site";
 
 export function Footer() {
@@ -9,11 +8,9 @@ export function Footer() {
           <p className="font-display text-xl text-ivory-50">
             {brokerage.name}
           </p>
+          <p className="mt-1">{brokerage.city}</p>
           <p className="mt-1">
-            {brokerage.city} · Office <SlotText slot={brokerage.officePhone} tone="dark" />
-          </p>
-          <p className="mt-1">
-            {agent.name}, {agent.licenses}. License nos. <SlotText slot={agent.licenseNumbers} tone="dark" />
+            {agent.name}, {agent.licenses}.
           </p>
           <p className="mt-6 max-w-2xl">{nonAffiliation}</p>
         </div>
@@ -26,9 +23,6 @@ export function Footer() {
           </p>
           <p className="mt-4">
             A private page prepared for {recipient.name}. It isn&rsquo;t indexed or linked from anywhere public.
-          </p>
-          <p className="mt-4">
-            <SlotText slot={brokerage.brokerApproval} tone="dark" />
           </p>
         </div>
       </div>

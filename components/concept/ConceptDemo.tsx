@@ -3,9 +3,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useId, useState, type FormEvent } from "react";
 import { LakeScene } from "@/components/media/LakeScene";
-import { VideoFacade } from "@/components/media/VideoFacade";
 import { track } from "@/lib/analytics";
-import { conceptLabel, conceptLifestyleVideo, conceptStory, conceptTabs, type ConceptTabId } from "@/content/concept";
+import { conceptLabel, conceptStory, conceptTabs, type ConceptTabId } from "@/content/concept";
 
 /**
  * An example of the marketing experience, not a promise in prose.
@@ -116,9 +115,6 @@ function LakePanel() {
         <p className="mt-3 max-w-md font-display text-4xl leading-tight text-ivory-50 sm:text-5xl">
           Mornings on the water. Evenings on the dock.
         </p>
-        <div className="mt-6 max-w-md">
-          <VideoFacade video={conceptLifestyleVideo} trackingId="concept-lifestyle" tone="dark" />
-        </div>
       </div>
     </div>
   );

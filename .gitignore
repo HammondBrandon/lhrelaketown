@@ -51,6 +51,9 @@ next-env.d.ts
 /public/media/photography photos/
 /public/media/social media/
 /public/media/case studies/
+/public/media/*.png
+/public/media/*.jpg
+/public/media/*.jpeg
 /public/media/reviews/
 
 # local editor / tool state
