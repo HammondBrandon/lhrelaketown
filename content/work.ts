@@ -263,7 +263,7 @@ export const walkthrough: WalkthroughStep[] = [
     id: "launch",
     title: "Listing launch",
     summary: "Launch day is more than clicking submit in the MLS. Lindsey has paid advertisements ready to roll out for the launch. Her expertise in marketing and social media reach helps to ensure that her client's property gets as much visibility as possible.",
-    image: { src: "/media/work/steps/launch.jpg", width: 1600, height: 1370, alt: "Facebook reel for three land options in Delta, Alabama, with the on-screen text \u201cNo restrictions!\u201d" },
+    image: { src: "/media/work/steps/launch.jpg", width: 693, height: 802, alt: "Facebook post by Lindsey about three land tracts in Delta, Alabama, with a photo collage of aerial views, a deer stand, deer on a trail camera and a pink tract map" },
   },
   {
     id: "leads",

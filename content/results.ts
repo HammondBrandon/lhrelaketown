@@ -112,15 +112,15 @@ export const caseStudies: CaseStudy[] = [
       "Reached out to investors who might want a tract of land to hold as an investment",
     ],
     timeline: { listed: "November 6, 2025", underContract: "December 1, 2025", daysToContract: 25 },
-    result: "One of the investors bought the property to hold onto.",
+    result: "One of the investors bought the property to hold on to.",
   },
   {
     id: "case-bethlehem-church-rd",
     property: "275 Bethlehem Church Rd",
     location: "Carrollton, GA",
     image: { src: "/media/work/listings/bethlehem-church-rd.jpg", width: 1600, height: 1200, alt: "Aerial view of a new single-story ranch home with a covered front porch, surrounded by trees" },
-    problem: "The owners had bought the property three months earlier and needed to get a little more out of it.",
-    strategy: "Make enough money for the owners to cover all of their costs.",
+    problem: "The owners had bought the property three months earlier and needed to make enough money to cover all costs.",
+    strategy: "Highlight the home\u2019s great features to showcase why it is worth more money three months later.",
     marketingSteps: [
       "Highlighted how new the home was",
       "Targeted people looking for a true ranch with no steps",
