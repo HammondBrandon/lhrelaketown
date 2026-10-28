@@ -80,33 +80,65 @@ const caseStudy = (id: string, property: string, location: Slot<string>): CaseSt
   permission: todo(`${property}: client permission`),
 });
 
-/** "Listings, in detail": five real listings. Colton's review is for Barnes Rd. */
+/** "Listings, in detail": six real listings, each written in Lindsey's third person. Colton's review is for Barnes Rd. */
 export const caseStudies: CaseStudy[] = [
   {
     ...caseStudy("barnes-rd", "Barnes Rd", "Bowdon, GA"),
     problem: "It had an easement, and it sat at a luxury price point for the area.",
-  },
-  {
-    ...caseStudy("cr-475", "0 County Road 475", "Woodland, AL"),
-    problem: "It was down a dirt road where neighbors kept taking down Lindsey\u2019s sign.",
+    strategy:
+      "Lindsey intentionally marketed the home to people closer to Atlanta, and to those drawn to the deer hunting and fishing that come with the property, rather than worrying about the easement.",
+    marketingSteps: [
+      "Targeted a broader audience, including people closer to Atlanta",
+      "Added niche details such as hunting and fishing",
+      "Scheduled an agent open house to generate extra attention",
+    ],
+    result: "Sold to a family from out toward Atlanta, who were the first to tour the property.",
   },
   {
     ...caseStudy("main-st", "791 N Main St", "Wedowee, AL"),
     problem:
       "The sellers parted ways with their previous agent two weeks after listing, citing too little marketing and too few showings. After seeing how Lindsey marketed her listings, they chose her to list it.",
-    result: "Under contract in 14 days.",
+    strategy: "Target two groups: first-time home buyers, and people looking for a cheaper lake getaway.",
+    marketingSteps: [
+      "Created a fun, water-themed video showing how close the property is to the lake",
+      "Ran the numbers for first-time buyers and marketed how low the payment could be",
+      "Ran a campaign aimed at people in Carroll County and Douglasville looking for a getaway",
+    ],
+    result:
+      "Under contract in 14 days, and sold to a first-time home buyer who found it directly through Lindsey\u2019s marketing.",
   },
   {
     ...caseStudy("gun-club-rd", "0 Gun Club Rd", "Tallapoosa, GA"),
     problem: "It was landlocked, with no road frontage or easements.",
-    strategy:
-      "Lindsey reached out to the neighboring property owners until she found one willing to buy it.",
-    result: "A neighboring owner was willing to buy it.",
+    strategy: "Reach out to nearby owners to see if anyone was interested.",
+    marketingSteps: [
+      "Personally reached out to every neighbor with nearby land to see if they wanted to expand their property",
+      "Reached out to investors who might want a tract of land to hold as an investment",
+    ],
+    result: "One of the investors bought the property to hold onto.",
   },
   {
     ...caseStudy("bethlehem-church-rd", "275 Bethlehem Church Rd", "Carrollton, GA"),
     problem: "The owners had bought the property three months earlier and needed to get a little more out of it.",
-    result: "Lindsey sold it for $25,000 more than they bought it for.",
+    strategy: "Make enough money for the owners to cover all of their costs.",
+    marketingSteps: [
+      "Highlighted how new the home was",
+      "Targeted people looking for a true ranch with no steps",
+      "Reached out to neighboring towns, since the property sits so close to I-20",
+    ],
+    result: "Sold to a buyer who needed something new without steps, for $25,000 more than the owners paid.",
+  },
+  {
+    ...caseStudy("shiloh-church-rd", "24 Shiloh Church Rd", "Whitesburg, GA"),
+    problem: "The seller lived in New York and had only seen the property in photos.",
+    strategy:
+      "The seller trusted Lindsey to make the big decisions, so she coordinated all of the work the home needed, including getting the locks changed.",
+    marketingSteps: [
+      "Sent the property to her special list of investors",
+      "Ran posts in investor groups",
+      "Virtually transformed the space to give potential buyers the vision",
+    ],
+    result: "An investor bought it and flipped it into a beautiful place.",
   },
 ];
 
